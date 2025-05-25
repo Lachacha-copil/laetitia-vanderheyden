@@ -81,58 +81,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Contact Form
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !message) {
-                alert('Veuillez remplir tous les champs obligatoires.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Veuillez entrer une adresse email valide.');
-                return;
-            }
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
-            // Prepare form data
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('message', message);
-            formData.append('_to', 'contact@laetitia-vanderheyden.be');
-            formData.append('_subject', 'Nouveau message du site web');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-            try {
-                const response = await fetch('https://formspree.io/f/mjkwqowb', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+        // Form validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-                if (response.ok) {
-                    alert('Merci pour votre message. Je vous contacterai bientôt!');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Erreur lors de l\'envoi du message');
+        if (!name || !email || !message) {
+            formMessage.textContent = "❌ Veuillez remplir tous les champs obligatoires.";
+            formMessage.style.color = "#DC6F6F";
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            formMessage.textContent = "❌ Veuillez entrer une adresse email valide.";
+            formMessage.style.color = "#DC6F6F";
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+        formData.append('_subject', 'Nouveau message du site web');
+
+        try {
+            const response = await fetch('https://formspree.io/f/mjkwqowb', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
-            } catch (error) {
-                alert('Une erreur est survenue. Veuillez réessayer plus tard.');
-                console.error('Erreur:', error);
+            });
+
+            if (response.ok) {
+                formMessage.textContent = "✅ Merci pour votre message. Je vous contacterai bientôt !";
+                formMessage.style.color = "#7DA87B";
+                contactForm.reset();
+            } else {
+                formMessage.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
+                formMessage.style.color = "#DC6F6F";
             }
-        });
-    }
+        } catch (error) {
+            formMessage.textContent = "❌ Une erreur s’est produite. Vérifiez votre connexion.";
+            formMessage.style.color = "#DC6F6F";
+        }
+
+        // Facultatif : efface le message après 6 secondes
+        setTimeout(() => {
+            formMessage.textContent = "";
+        }, 6000);
+    });
+}
 
     // Initialize scroll events
     window.addEventListener('scroll', function() {
