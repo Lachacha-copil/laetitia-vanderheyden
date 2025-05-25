@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('_subject', 'Nouveau message du site web');
 
             try {
-                const response = await fetch('https://formspree.io/f/xbjnkzrw', {
+                const response = await fetch('https://formspree.io/f/mjkwqowb', {
                     method: 'POST',
                     body: formData,
                     headers: {
