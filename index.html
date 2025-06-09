@@ -322,9 +322,12 @@
 
     <script src="js/main.js"></script>
     <script>
-      if (window.location.pathname === '/index.html') {
-        window.location.replace('/');
-      }
-    </script>
+  // Redirection pour tous les cas d'accès à index.html
+  if (window.location.pathname === '/index.html' || 
+      window.location.pathname.endsWith('/index.html')) {
+    // Utiliser replace pour éviter l'historique
+    window.location.replace(window.location.origin + '/');
+  }
+</script>
 </body>
 </html>
