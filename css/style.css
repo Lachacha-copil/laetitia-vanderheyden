@@ -573,6 +573,23 @@ footer {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.made-by {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.made-by .heart {
+    color: #ff6b6b;
+    font-size: 1.1em;
+    margin: 0 2px;
+}
+
 .company-info {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.8);
