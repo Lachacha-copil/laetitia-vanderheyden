@@ -177,4 +177,33 @@ if (contactForm) {
             }
         });
     });
+
+    // FAQ Functionality - À ajouter à la fin de votre main.js, juste avant la fermeture du DOMContentLoaded
+
+    // FAQ Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Fermer tous les autres items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle l'item actuel
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
 });
