@@ -178,23 +178,16 @@ if (contactForm) {
         });
     });
 
-    // FAQ Functionality - À ajouter à la fin de votre main.js, juste avant la fermeture du DOMContentLoaded
 
-    // FAQ Functionality avec debug
-    console.log('Début FAQ setup'); // Debug
+    // FAQ Functionality
     const faqItems = document.querySelectorAll('.faq-item');
-    console.log('FAQ items trouvés:', faqItems.length); // Debug
     
-    faqItems.forEach((item, index) => {
-        console.log(`Setup FAQ item ${index}:`, item); // Debug
+    faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        console.log(`Question trouvée pour item ${index}:`, question); // Debug
         
         if (question) {
             question.addEventListener('click', () => {
-                console.log(`FAQ item ${index} cliqué !`); // Debug
                 const isActive = item.classList.contains('active');
-                console.log(`Item ${index} était actif:`, isActive); // Debug
                 
                 // Fermer tous les autres items
                 faqItems.forEach(otherItem => {
@@ -206,14 +199,10 @@ if (contactForm) {
                 // Toggle l'item actuel
                 if (isActive) {
                     item.classList.remove('active');
-                    console.log(`Item ${index} fermé`); // Debug
                 } else {
                     item.classList.add('active');
-                    console.log(`Item ${index} ouvert`); // Debug
                 }
             });
-        } else {
-            console.log(`Pas de question trouvée pour item ${index}`); // Debug
         }
     });
 });
