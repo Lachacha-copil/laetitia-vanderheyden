@@ -875,3 +875,142 @@ footer {
         padding: 0 20px 20px 20px;
     }
 }
+
+<style>
+/* About Section Responsive */
+.about-content-responsive {
+    padding: 2rem 0;
+}
+
+.about-text-centered {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text-centered h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.about-main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-intro {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.tech-expertise {
+    margin: 30px 0;
+    padding: 25px;
+    background: var(--background-alt);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.tech-expertise h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--text);
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.tech-expertise p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tools-intro {
+    margin: 30px 0;
+    font-weight: 500;
+    color: var(--text-light);
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.credentials-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-text-centered h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-intro {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tech-expertise {
+        margin: 20px 0;
+        padding: 20px;
+    }
+    
+    .tech-expertise h4 {
+        font-size: 1.2rem;
+    }
+    
+    .tech-expertise p {
+        font-size: 1rem;
+    }
+    
+    .tools-intro {
+        font-size: 1rem;
+        margin: 20px 0;
+    }
+    
+    .credentials-responsive {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .credential {
+        padding: 1.2rem;
+    }
+    
+    .credential h4 {
+        font-size: 1.1rem;
+    }
+    
+    .credential p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text-centered h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-intro {
+        font-size: 1rem;
+    }
+    
+    .tech-expertise {
+        padding: 15px;
+    }
+    
+    .tech-expertise h4 {
+        font-size: 1.1rem;
+    }
+    
+    .tools-intro {
+        font-size: 0.95rem;
+    }
+}
