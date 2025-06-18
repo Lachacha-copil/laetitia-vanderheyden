@@ -1015,15 +1015,15 @@ footer {
     }
 }
 
-/* Icônes sociales dans la section contact UNIQUEMENT */
-.contact-social-icons {
+/* Social Links */
+.social-links {
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
-    margin-left: -0.6rem; /* Alignement avec les icônes de contact */
+    margin-left: -0.6rem; /* Décalage vers la gauche pour alignement parfait */
 }
 
-.contact-social-link {
+.social-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1037,7 +1037,7 @@ footer {
     overflow: hidden;
 }
 
-.contact-social-link i {
+.social-link i {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
@@ -1047,7 +1047,7 @@ footer {
     position: relative;
 }
 
-.contact-social-link::before {
+.social-link::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1059,16 +1059,16 @@ footer {
     z-index: -1;
 }
 
-.contact-social-link:hover::before {
+.social-link:hover::before {
     left: 0;
 }
 
-.contact-social-link:hover i {
+.social-link:hover i {
     -webkit-text-fill-color: white;
     color: white;
 }
 
-.contact-social-link:hover {
+.social-link:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 85, 255, 0.2);
 }
