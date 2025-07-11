@@ -314,6 +314,12 @@ nav {
 }
 
 /* Section Formations & Conférences */
+#training-conference { /* Assurez-vous que votre section a bien cet ID */
+    padding-top: 120px; /* Comme vos autres sections */
+    padding-bottom: 120px; /* Comme vos autres sections */
+    /* Assurez-vous que la classe section-padding est bien appliquée dans votre HTML */
+}
+
 .training-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -322,16 +328,40 @@ nav {
     padding: 2rem 0; /* Espacement interne */
 }
 
+/* Styles pour le bloc de texte à l'intérieur de training-content */
+.training-text {
+    /* Ajouté pour créer de l'espace à droite si le texte est trop près de l'image */
+    padding-right: 2rem; 
+    /* Si besoin de limiter la largeur du texte pour qu'il ne soit pas trop étendu sur de grands écrans */
+    /* max-width: 600px; /* Exemple, à ajuster */
+    /* margin-left: auto; */
+    /* margin-right: auto; */ /* Pour centrer le texte si max-width est défini */
+}
+
+.training-text h3 {
+    margin-bottom: 1.5rem; /* Ajoute de l'espace sous le titre H3 */
+    /* Assurez-vous que la couleur et la taille de police sont cohérentes avec vos autres H3 */
+    color: var(--text); /* Exemple, si ce n'est pas déjà hérité */
+    font-size: 1.8rem; /* Exemple, si ce n'est pas déjà hérité */
+}
+
+.training-text p {
+    margin-bottom: 1.5rem; /* Ajoute de l'espace sous le paragraphe principal */
+    line-height: 1.7; /* Rend le texte plus aéré et lisible */
+    color: var(--text-light); /* Exemple, si ce n'est pas déjà hérité */
+    font-size: 1.1rem; /* Exemple, si ce n'est pas déjà hérité */
+}
+
 .training-content ul {
     list-style: none; /* Supprime les puces par défaut */
     padding: 0;
-    margin-top: 1.5rem;
+    margin-top: 1.5rem; /* Espacement au-dessus de la liste */
 }
 
 .training-content ul li {
     display: flex;
     align-items: flex-start; /* Aligne l'icône en haut du texte */
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.8rem; /* Espacement entre chaque élément de liste */
     font-size: 1.1rem;
     line-height: 1.4;
 }
@@ -339,7 +369,6 @@ nav {
 .training-content ul li i {
     font-size: 1.3rem;
     margin-right: 1rem;
-    /* Remplacer 'color: var(--primary);' par le dégradé */
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
@@ -353,17 +382,38 @@ nav {
     max-width: 100%;
     height: auto;
     border-radius: 10px; /* Adaptez à votre border-radius habituel */
-    box-shadow: var(--shadow); /* Si vous avez une variable pour l'ombre */
+    /* J'ai ajusté ici pour utiliser une valeur de shadow concrète si var(--shadow) n'est pas défini */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
+    /* Si vous avez une variable --shadow et qu'elle est définie, utilisez : box-shadow: var(--shadow); */
+}
+
+/* Styles pour le bouton dans la section formation */
+.training-text .btn {
+    margin-top: 2rem; /* Espacement au-dessus du bouton */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .training-content {
         grid-template-columns: 1fr; /* Passage à une seule colonne sur mobile */
+        gap: 2rem; /* Espacement réduit sur mobile */
     }
     .training-media {
         order: -1; /* Place l'image/vidéo au-dessus du texte sur mobile */
         margin-bottom: 2rem;
+    }
+    .training-text {
+        padding-right: 0; /* Pas besoin de padding-right sur mobile */
+    }
+    .training-text h3 {
+        font-size: 1.5rem; /* Taille de titre ajustée pour mobile */
+    }
+    .training-text p,
+    .training-content ul li {
+        font-size: 1rem; /* Taille de texte ajustée pour mobile */
+    }
+    .training-text .btn {
+        margin-top: 1.5rem; /* Ajustement du bouton sur mobile */
     }
 }
 
