@@ -389,7 +389,7 @@ nav {
 
 /* Styles pour le bouton dans la section formation */
 .training-text .btn {
-    margin-top: 2.5rem; /* Espacement au-dessus du bouton */
+    margin-top: 3rem; /* Espacement au-dessus du bouton */
 }
 
 /* Responsive */
@@ -693,7 +693,7 @@ select::-ms-expand {
 
 /* Ajustement du bouton "Voir toutes mes actualités" */
 .facebook-post-container .btn {
-    margin-top: 1.5rem; /* Espace entre le post et le bouton */
+    margin-top: 2.5rem; /* Espace entre le post et le bouton */
 }
 
 /* Responsive pour mobile */
