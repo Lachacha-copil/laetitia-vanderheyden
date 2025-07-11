@@ -694,7 +694,7 @@ select::-ms-expand {
 
 /* Ajustement du bouton "Voir toutes mes actualités" */
 .facebook-post-container .btn {
-    margin-top: 2.5rem !important; /* Espace entre le post et le bouton */
+    margin-top: 3.5rem !important; /* Espace entre le post et le bouton */
 }
 
 /* Responsive pour mobile */
