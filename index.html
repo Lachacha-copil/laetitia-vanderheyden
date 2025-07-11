@@ -56,7 +56,7 @@
                     <p class="tagline">Comptable reconvertie, je transforme vos corvées admin en processus fluides. En 30 jours max.</p>
                     <p class="hero-description">Je suis Laetitia, votre copilote business. J'aide les indépendants, PME et ASBL à organiser, optimiser et digitaliser leur activité avec un mix de coaching sur-mesure et d'outils malins.</p>
                     <div class="hero-cta">
-                        <a href="https://tidycal.com/192k0pm/mini-audit-gratuit-20-min-pour-faire-le-point" class="btn btn-primary" target="_blank">Diagnostic gratuit 20 min</a>
+                        <a href="https://tidycal.com/pack-audit-express/appel-decouverte" class="btn btn-primary" target="_blank">Une question ?</a>
                         <a href="#contact" class="btn btn-secondary">Me contacter</a>
                     </div>
                 </div>
@@ -407,27 +407,39 @@
                         </div>
                     </div>
                     <div class="contact-form reveal-right">
-                        <form id="contactForm" action="https://formspree.io/f/mjkwqowb" method="POST">
-                            <div class="form-group">
-                                <label for="name">Nom complet *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
-                                <input type="checkbox" id="privacy" required style="width: auto;">
-                                <label for="privacy">J'accepte la <a href="privacy.html">politique de confidentialité</a> *</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-full">Envoyer</button>
-                            <p id="formMessage" style="margin-top: 1rem; color: #7DA87B; font-weight: 500;"></p>
-                        </form>
-                    </div>
+    <form id="contactForm" action="https://formspree.io/f/mjkwqowb" method="POST">
+        <div class="form-group">
+            <label for="name">Nom complet *</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="interest">Comment pouvons-nous vous aider ? *</label>
+            <select id="interest" name="interest" required>
+                <option value="">Sélectionnez une option...</option> <option value="optimisation_processus">Optimisation de mes processus</option>
+                <option value="digitalisation_admin">Digitalisation de mon administratif</option>
+                <option value="gestion_creances">Gestion de mes créances</option>
+                <option value="consultance_ia">Consultance en intégration IA</option>
+                <option value="formation">Formation spécifique</option>
+                <option value="autre_besoin">Autre besoin (veuillez préciser ci-dessous)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Votre message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
+            <input type="checkbox" id="privacy" required style="width: auto;">
+            <label for="privacy">J'accepte la <a href="privacy.html">politique de confidentialité</a> *</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Envoyer</button>
+        <p id="formMessage" style="margin-top: 1rem; color: #7DA87B; font-weight: 500;"></p>
+    </form>
+</div>
                 </div>
             </div>
         </section>
