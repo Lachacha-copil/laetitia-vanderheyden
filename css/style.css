@@ -499,22 +499,55 @@ nav {
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Bon espacement */
 }
 
-input, textarea {
+/* MODIFICATION ICI : Ajoutez 'select' au sélecteur */
+input,
+textarea,
+select { /* <-- J'ai ajouté 'select' ici */
     width: 100%;
     padding: 1rem;
     border: 2px solid var(--border);
     border-radius: 10px;
     transition: all 0.3s ease;
-    font-family: inherit;
+    font-family: inherit; /* Pour hériter la police du reste du site */
 }
 
-input:focus, textarea:focus {
+/* MODIFICATION ICI : Ajoutez 'select' au sélecteur de focus */
+input:focus,
+textarea:focus,
+select:focus { /* <-- J'ai ajouté 'select' ici */
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary); /* Utilisera votre couleur primaire définie */
     box-shadow: 0 0 0 3px rgba(0, 85, 255, 0.1);
+}
+
+/* OPTIONNEL : Styles spécifiques pour cacher la flèche native du select et en mettre une personnalisée si désiré */
+select {
+    /* Cache la flèche par défaut du navigateur */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Ajoutez une flèche personnalisée via une image de fond (SVG recommandé) */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2C116.8L154.5%2C249.2c-2.4%2C2.4-5.5%2C3.6-8.7%2C3.6c-3.2%2C0-6.3-1.2-8.7-3.6L5.4%2C116.8c-4.8-4.8-4.8-12.5%2C0-17.3s12.5-4.8%2C17.3%2C0l131.7%2C131.7L269.7%2C99.5c4.8-4.8%2C12.5-4.8%2C17.3%2C0C291.8%2C104.3%2C291.8%2C112%2C287%2C116.8z%22%2F%3E%3C%2Fsvg%3E'); /* Couleur #666 pour la flèche */
+    background-repeat: no-repeat;
+    background-position: right 1rem center; /* Ajustez la position si nécessaire */
+    background-size: 1rem; /* Taille de la flèche */
+    padding-right: 2.5rem; /* Ajoutez du padding pour ne pas recouvrir la flèche */
+    cursor: pointer; /* Indique que c'est cliquable */
+}
+
+/* Pour les navigateurs qui ne supportent pas 'appearance: none' ou si vous voulez être extra prudent */
+select::-ms-expand {
+    display: none;
+}
+
+/* S'assurer que le label du checkbox reste bien aligné si le 'display: flex' sur form-group n'est pas suffisant */
+.form-group label[for="privacy"] {
+    display: inline-block; /* Assure qu'il ne prend pas toute la largeur */
+    vertical-align: middle; /* Aligne verticalement avec le checkbox */
+    margin-bottom: 0; /* Pas de marge en bas si le flexbox gère l'espacement */
 }
 
 /* Footer */
