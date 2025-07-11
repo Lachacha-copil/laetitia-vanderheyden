@@ -680,6 +680,7 @@ select::-ms-expand {
     max-width: 100%;
     background: #000; /* Une couleur de fond pour éviter les flashs blancs au chargement de la vidéo */
     border-radius: 10px; /* Pour s'accorder avec le conteneur */
+    margin-bottom: 2.5rem; /* Ajustez cette valeur selon l'espacement désiré */
 }
 
 .video-responsive iframe,
