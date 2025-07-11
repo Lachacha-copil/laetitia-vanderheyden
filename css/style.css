@@ -313,6 +313,60 @@ nav {
     line-height: 1.6;
 }
 
+/* Section Formations & Conférences */
+.training-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem; /* Espacement entre le texte et l'image/vidéo */
+    align-items: center; /* Centrer verticalement */
+    padding: 2rem 0; /* Espacement interne */
+}
+
+.training-content ul {
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.training-content ul li {
+    display: flex;
+    align-items: flex-start; /* Aligne l'icône en haut du texte */
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.training-content ul li i {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+    /* Remplacer 'color: var(--primary);' par le dégradé */
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.training-media img,
+.training-media video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Adaptez à votre border-radius habituel */
+    box-shadow: var(--shadow); /* Si vous avez une variable pour l'ombre */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .training-content {
+        grid-template-columns: 1fr; /* Passage à une seule colonne sur mobile */
+    }
+    .training-media {
+        order: -1; /* Place l'image/vidéo au-dessus du texte sur mobile */
+        margin-bottom: 2rem;
+    }
+}
+
 /* Approach Section */
 .approach-content {
     display: grid;
