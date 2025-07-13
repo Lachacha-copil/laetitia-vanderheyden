@@ -882,6 +882,17 @@ footer {
         gap: 2rem;
     }
 
+    .btn { /* C'est cette règle qui est clé pour tous les boutons ! */
+        white-space: nowrap;     /* Empêche le texte de passer à la ligne */
+        overflow: hidden;        /* Cache le texte qui dépasserait */
+        text-overflow: ellipsis; /* Ajoute "..." si le texte est coupé */
+        padding: 0.7rem 1.2rem;  /* Réduit le padding horizontal sur mobile */
+        font-size: 0.9rem;       /* Réduit la taille de la police du bouton sur mobile */
+        display: inline-block;   /* Essentiel pour que white-space fonctionne */
+        max-width: 100%;         /* S'assure qu'il ne déborde pas de son parent */
+        box-sizing: border-box;  /* S'assure que padding et border sont inclus dans la largeur */
+    }
+
     .nav-menu {
         display: none;
     }
