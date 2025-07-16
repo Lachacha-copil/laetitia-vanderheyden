@@ -214,10 +214,10 @@ nav {
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    align-items: stretch; /* Force même hauteur */
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2rem !important;
+    align-items: stretch !important; /* Force même hauteur */
 }
 
 .service-card {
