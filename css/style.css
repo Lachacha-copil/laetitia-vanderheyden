@@ -27,9 +27,9 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.2rem;
 }
 
 /* Header & Navigation */
@@ -151,7 +151,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.3rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
@@ -181,7 +181,7 @@ body {
 }
 
 .btn {
-    padding: 1rem 2rem;
+    padding: 0.9rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
@@ -244,7 +244,7 @@ body {
 }
 
 .section-header h2 {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     color: var(--text);
     margin-bottom: 1rem;
 }
@@ -510,11 +510,15 @@ body {
 
 @media (max-width: 768px) {
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        gap: 1.5rem;
     }
     
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        gap: 1.5rem;
     }
     
     .conseils-grid {
@@ -787,10 +791,12 @@ body {
     align-items: center;
 }
 
+/* Section formation : bouton moins large, centré, plus proche de l'image */
 .training-media .btn {
-    margin-top: 2rem;
-    align-self: center;
+    max-width: 350px;
     width: 100%;
+    margin: 1.2rem auto 0 auto;
+    display: block !important;
     text-align: center;
 }
 
@@ -1491,12 +1497,16 @@ footer {
         align-items: center;
     }
 
-    .services-grid {
-        grid-template-columns: 1fr;
+        .services-grid {
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        gap: 1.5rem;
     }
-
+    
     .testimonials-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        gap: 1.5rem;
     }
 
     .section-padding {
