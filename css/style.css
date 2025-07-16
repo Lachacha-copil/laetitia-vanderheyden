@@ -153,7 +153,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
@@ -224,7 +224,7 @@ body {
 .hero-image img {
     width: 100%;
     height: auto;
-    max-height: 600px;
+    max-height: 500px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -1120,7 +1120,7 @@ body {
 }
 
 .contact-info h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
@@ -1291,7 +1291,7 @@ footer {
 
 .footer-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .footer-links ul {
@@ -1306,7 +1306,8 @@ footer {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .footer-links a:hover {
@@ -1865,7 +1866,7 @@ footer {
     align-items: center;
     gap: 3rem;
     flex-wrap: wrap;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .partner-logo {
@@ -1892,13 +1893,22 @@ footer {
     filter: grayscale(0%);
 }
 
+/* Section partners avec moins d'espacement */
+#partners.section-padding {
+    padding: 40px 0;
+}
+
 @media (max-width: 768px) {
     .partners-grid {
         gap: 2rem;
-        padding: 1.5rem 0;
+        padding: 1rem 0;
     }
     
     .partner-logo img {
         max-height: 60px;
+    }
+    
+    #partners.section-padding {
+        padding: 30px 0;
     }
 }
