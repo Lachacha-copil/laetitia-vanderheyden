@@ -57,7 +57,7 @@ nav {
 }
 
 .logo img {
-    height: 250px;
+    height: 200px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -121,12 +121,12 @@ nav {
 
 /* Ajustement du body pour le header fixe */
 body {
-    padding-top: 150px;
+    padding-top: 120px;
 }
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -151,7 +151,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
@@ -165,7 +165,7 @@ body {
 }
 
 .tagline {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--text-light);
     margin-bottom: 1.5rem;
 }
@@ -244,7 +244,7 @@ body {
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--text);
     margin-bottom: 1rem;
 }
@@ -798,6 +798,13 @@ body {
 .training-text .btn {
     margin-top: 2.5rem !important; /* Espacement au-dessus du bouton */
     display: none; /* Cache le bouton dans la colonne de gauche */
+}
+
+/* Assurez-vous que le bouton dans training-media est visible */
+.training-media .btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Responsive */
