@@ -342,7 +342,7 @@ body {
     border-top: 1px solid #e2e8f0 !important;
     position: relative !important;
     display: flex !important;
-    align-items: center !important;
+    align-items: flex-start !important;
 }
 
 .benefit-subtle::before {
@@ -554,6 +554,9 @@ body {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -598,6 +601,7 @@ body {
     color: var(--text-light);
     font-size: 1rem;
     line-height: 1.6;
+    flex-grow: 1;
 }
 
 /* Classe pour les mots/phrases en surbrillance */
@@ -655,7 +659,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem; /* Espacement entre le texte et l'image/vidéo */
-    align-items: center; /* Centrer verticalement */
+    align-items: start; /* Aligner en haut */
     padding: 2rem 0; /* Espacement interne */
 }
 
@@ -761,9 +765,21 @@ body {
     /* Si vous avez une variable --shadow et qu'elle est définie, utilisez : box-shadow: var(--shadow); */
 }
 
+.training-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.training-media .btn {
+    margin-top: 2rem;
+    align-self: center;
+}
+
 /* Styles pour le bouton dans la section formation */
 .training-text .btn {
     margin-top: 2.5rem !important; /* Espacement au-dessus du bouton */
+    display: none; /* Cache le bouton dans la colonne de gauche */
 }
 
 /* Responsive */
