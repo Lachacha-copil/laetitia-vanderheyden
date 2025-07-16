@@ -250,10 +250,10 @@ body {
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    align-items: stretch;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2rem !important;
+    align-items: stretch !important;
 }
 
 .service-card {
@@ -329,18 +329,18 @@ body {
 }
 
 .benefit-subtle {
-    background: var(--background-alt);
-    padding: 20px 25px;
-    margin: 0;
-    margin-top: auto;
-    font-style: italic;
-    color: var(--text-light);
-    font-size: 0.85rem;
-    font-weight: 400;
-    text-align: center;
-    opacity: 0.9;
-    border-top: 1px solid #e2e8f0;
-    position: relative;
+    background: var(--background-alt) !important;
+    padding: 20px 25px !important;
+    margin: 0 !important;
+    margin-top: auto !important;
+    font-style: italic !important;
+    color: var(--text-light) !important;
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    opacity: 0.9 !important;
+    border-top: 1px solid #e2e8f0 !important;
+    position: relative !important;
 }
 
 .benefit-subtle::before {

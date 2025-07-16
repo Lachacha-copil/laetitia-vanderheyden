@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (mobileMenu) {
+    if (mobileMenu && navMenu) {
         mobileMenu.addEventListener('click', function() {
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     
     function headerScroll() {
-        if (window.scrollY > 50) {
+        if (header && window.scrollY > 50) {
             header.classList.add('scrolled');
-        } else {
+        } else if (header) {
             header.classList.remove('scrolled');
         }
     }
@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTopBtn = document.getElementById('backToTop');
     
     function toggleBackToTop() {
-        if (window.scrollY > 300) {
+        if (backToTopBtn && window.scrollY > 300) {
             backToTopBtn.classList.add('show');
-        } else {
+        } else if (backToTopBtn) {
             backToTopBtn.classList.remove('show');
         }
     }
