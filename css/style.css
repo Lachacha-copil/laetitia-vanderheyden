@@ -229,6 +229,7 @@ nav {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%; 
 }
 
 .service-card:hover {
@@ -239,6 +240,8 @@ nav {
 .service-content {
     padding: 2rem; /* Padding pour le contenu principal */
     flex-grow: 1; /* Prend l'espace disponible */
+    display: flex;
+    flex-direction: column;
 }
 
 .service-icon {
@@ -275,13 +278,21 @@ nav {
     color: var(--text-light);
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 0;
+    margin-bottom: auto;
 }
+
+.highlight {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
 
 .benefit-subtle {
     background: var(--background-alt);
     padding: 15px 20px;
     margin: 0;
+    margin-top: auto;
     font-style: italic;
     color: var(--text-light);
     font-size: 0.85rem;
@@ -302,7 +313,16 @@ nav {
     transform: translateY(-50%);
 }
 
+/* FIX 2: Results Section - même structure */
+#results {
+    padding: 120px 0;
+}
+
 /* Conseils Section */
+#conseils {
+    padding: 120px 0;
+}
+
 .conseils-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -312,17 +332,28 @@ nav {
 
 .conseil-card {
     background: white;
-    padding: 30px;
+    padding: 0;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
     border-left: 4px solid var(--gradient-start);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Force même hauteur */
 }
 
 .conseil-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+/* Contenu principal du conseil */
+.conseil-content {
+    padding: 30px;
+    flex-grow: 1; /* Prend l'espace disponible */
+    display: flex;
+    flex-direction: column;
 }
 
 .conseil-number {
@@ -339,6 +370,18 @@ nav {
     justify-content: center;
     font-weight: 600;
     font-size: 0.9rem;
+    z-index: 10;
+}
+
+.warning-badge {
+    background: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 
 .conseil-card h3 {
@@ -353,6 +396,7 @@ nav {
     color: var(--text-light);
     margin-bottom: 15px;
     line-height: 1.6;
+    flex-grow: 1; /* Prend l'espace disponible */
 }
 
 .conseil-list {
@@ -377,20 +421,13 @@ nav {
     font-weight: 600;
 }
 
+/* FIX PRINCIPAL 3: CTA toujours en bas */
 .conseil-cta {
-    margin-top: 20px;
+    margin-top: auto; /* Se place automatiquement en bas */
+    padding: 20px 30px; /* Padding séparé pour le bouton */
     text-align: center;
-}
-
-.warning-badge {
-    background: #fff3cd;
-    color: #856404;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    display: inline-block;
+    background: #f8fafc; /* Légère différence visuelle */
+    border-top: 1px solid #e2e8f0;
 }
 
 .conseil-cta .btn {
@@ -415,16 +452,29 @@ nav {
     border-color: var(--gradient-start);
 }
 
-/* Responsive pour conseils */
+/* Responsive */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
 
 @media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
     .conseils-grid {
         grid-template-columns: 1fr;
         gap: 25px;
     }
     
-    .conseil-card {
+    .conseil-content {
         padding: 25px;
+    }
+    
+    .conseil-cta {
+        padding: 15px 25px;
     }
     
     .conseil-card h3 {
