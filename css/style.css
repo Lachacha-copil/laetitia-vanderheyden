@@ -330,27 +330,30 @@ body {
 
 .benefit-subtle {
     background: var(--background-alt) !important;
-    padding: 20px 25px !important;
+    padding: 20px 30px !important;
     margin: 0 !important;
     margin-top: auto !important;
     font-style: italic !important;
     color: var(--text-light) !important;
     font-size: 0.85rem !important;
     font-weight: 400 !important;
-    text-align: center !important;
+    text-align: left !important;
     opacity: 0.9 !important;
     border-top: 1px solid #e2e8f0 !important;
     position: relative !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .benefit-subtle::before {
     content: '→';
-    position: absolute;
-    left: 25px;
+    position: relative !important;
+    left: auto !important;
     color: var(--gradient-start);
     font-weight: 600;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-right: 8px !important;
+    top: auto !important;
+    transform: none !important;
 }
 
 /* FIX 2: Results Section - même structure */
@@ -394,6 +397,7 @@ body {
     flex-grow: 1; /* Prend l'espace disponible */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .conseil-number {
@@ -437,7 +441,7 @@ body {
     color: var(--text-light);
     margin-bottom: 15px;
     line-height: 1.6;
-    flex-grow: 1; /* Prend l'espace disponible */
+    flex-grow: 0; /* Ne prend pas l'espace disponible */
 }
 
 .conseil-list {
@@ -691,17 +695,35 @@ body {
 .training-content ul li {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 25px;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
-    border-left: 4px solid var(--gradient-start);
+    border-left: 5px solid var(--gradient-start);
+    position: relative;
+    overflow: hidden;
+}
+
+.training-content ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.02), rgba(14, 165, 233, 0.02));
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .training-content ul li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.training-content ul li:hover::before {
+    opacity: 1;
 }
 
 .training-content ul li i {
@@ -946,31 +968,30 @@ body {
 
 .credential .benefit-subtle {
     background: var(--background-alt);
-    padding: 20px 25px;
+    padding: 20px 30px;
     margin: 0;
     margin-top: 1rem;
     font-style: italic;
     color: var(--text-light);
     font-size: 0.85rem;
     font-weight: 400;
-    text-align: center;
+    text-align: left;
     opacity: 0.9;
     border-top: 1px solid #e2e8f0;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-left: 1.5rem;
 }
 
 .credential .benefit-subtle::before {
     content: '→';
-    position: absolute;
-    left: 25px;
+    position: relative;
+    left: auto;
     color: var(--gradient-start);
     font-weight: 600;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-right: 8px;
+    top: auto;
+    transform: none;
 }
 
 .credential:hover {
