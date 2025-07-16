@@ -538,6 +538,22 @@ body {
     .service-card, .project-card {
         margin-bottom: 1rem;
     }
+    
+    /* Cartes en colonnes sur mobile uniquement */
+    .services-grid .service-card {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .services-grid .service-card .service-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .services-grid .service-card .service-content p {
+        flex: 1;
+    }
 }
 
 /* Projects Section */
@@ -774,6 +790,8 @@ body {
 .training-media .btn {
     margin-top: 2rem;
     align-self: center;
+    width: 100%;
+    text-align: center;
 }
 
 /* Styles pour le bouton dans la section formation */
@@ -1213,6 +1231,8 @@ select::-ms-expand {
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 /* Ajustement du bouton "Voir toutes mes actualités" */
