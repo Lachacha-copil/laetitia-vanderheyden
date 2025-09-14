@@ -1267,8 +1267,8 @@ select::-ms-expand {
 /* Footer */
 footer {
     background: linear-gradient(135deg, #001233 0%, #001c4e 100%);
-    padding: 4rem 0 2rem;
-    margin-top: 4rem;
+    padding: 1.5rem 0 1rem;
+    margin-top: 1rem;
     color: white;
 }
 
@@ -1276,7 +1276,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .footer-logo {
@@ -1316,18 +1316,18 @@ footer {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 0.8rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.8);
 }
 
 .made-by {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-top: 2rem;
-    padding: 1rem;
+    margin-top: 0.8rem;
+    padding: 0.5rem;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+    border-radius: 6px;
     text-align: center;
     font-weight: 500;
 }
@@ -1340,9 +1340,7 @@ footer {
 
 .seo-phrase-section {
     background: #f8f9fa;
-    padding: 15px 0;
-    border-top: 2px solid #7DA87B;
-    border-bottom: 2px solid #7DA87B;
+    padding: 10px 0;
 }
 
 .seo-phrase-text {
@@ -1352,11 +1350,11 @@ footer {
     margin: 0;
     line-height: 1.5;
     text-align: center;
-    padding: 10px 15px;
+    padding: 8px 15px;
     background: #ffffff;
-    border-radius: 8px;
-    border-left: 4px solid #7DA87B;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    border-left: 3px solid #7DA87B;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .company-info {
