@@ -53,11 +53,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
 }
 
 .logo img {
-    height: 200px;
+    height: 120px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -123,7 +123,7 @@ nav {
 
 /* Ajustement du body pour le header fixe */
 body {
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
 .container {
@@ -135,12 +135,12 @@ body {
 
 /* Section padding fix */
 .section-padding {
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 /* Hero Section */
 #hero {
-    padding: 40px 0 60px 0;
+    padding: 20px 0 30px 0;
     background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
     overflow: hidden;
 }
@@ -237,7 +237,7 @@ body {
 
 /* Services Section */
 #services {
-    padding: 40px 0;
+    padding: 20px 0;
     background: var(--background-alt);
 }
 
@@ -673,7 +673,7 @@ body {
 
 /* Section Formations & Conférences */
 #training-conference { /* Assurez-vous que votre section a bien cet ID */
-    padding-top: 120px; /* Comme vos autres sections */
+    padding-top: 80px; /* Comme vos autres sections */
     padding-bottom: 120px; /* Comme vos autres sections */
     /* Assurez-vous que la classe section-padding est bien appliquée dans votre HTML */
 }
