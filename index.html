@@ -1039,6 +1039,23 @@
             });
             
             console.log('Système de cartes conseils initialisé avec succès');
+            
+            // Test immédiat : ajouter un indicateur visuel
+            conseilsCards.forEach((card, index) => {
+                card.title = `Carte ${index + 1} - Cliquez pour ouvrir`;
+                
+                // Test direct de la fonctionnalité
+                if (index === 0) {
+                    setTimeout(() => {
+                        console.log('Test : sélection de la première carte');
+                        selectCard(0);
+                        setTimeout(() => {
+                            console.log('Test : fermeture automatique');
+                            closeCards();
+                        }, 3000);
+                    }, 2000);
+                }
+            });
         }, 1000);
     });
     </script>
