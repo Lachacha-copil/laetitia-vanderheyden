@@ -994,19 +994,35 @@
                 }
             }
             
-            // Fonction pour fermer - Version robuste
+            // Fonction pour fermer - Version ULTRA robuste
             function closeCards() {
                 console.log('Fermeture des cartes');
                 
                 // Récupérer les cartes à nouveau
                 const currentCards = document.querySelectorAll('.conseil-card');
                 
-                // Fermer toutes les cartes
+                // Fermer toutes les cartes - Reset complet
                 currentCards.forEach(c => {
                     c.classList.remove('selected');
                     c.style.display = '';
                     c.style.visibility = '';
                     c.style.opacity = '';
+                    c.style.position = '';
+                    c.style.top = '';
+                    c.style.left = '';
+                    c.style.transform = '';
+                    c.style.zIndex = '';
+                    c.style.background = '';
+                    c.style.border = '';
+                    c.style.borderRadius = '';
+                    c.style.padding = '';
+                    c.style.boxShadow = '';
+                    c.style.width = '';
+                    c.style.maxWidth = '';
+                    c.style.height = '';
+                    c.style.maxHeight = '';
+                    c.style.minHeight = '';
+                    c.style.overflowY = '';
                 });
                 
                 // Masquer l'overlay
@@ -1023,7 +1039,7 @@
                 document.body.style.overflow = '';
                 currentIndex = -1;
                 
-                console.log('Cartes fermées avec succès');
+                console.log('Cartes fermées avec succès - Reset complet');
             }
             
             // Event listeners pour les cartes - Version ULTRA robuste
@@ -1106,14 +1122,27 @@
                 if (currentIndex < conseilsCards.length - 1) selectCard(currentIndex + 1);
             });
             
-            navClose.addEventListener('click', closeCards);
-            overlay.addEventListener('click', closeCards);
+            // Event listeners robustes pour la fermeture
+            navClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Clic sur bouton fermer');
+                closeCards();
+            });
+            
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    console.log('Clic sur overlay');
+                    closeCards();
+                }
+            });
             
             // Clavier
             document.addEventListener('keydown', (e) => {
                 if (currentIndex >= 0) {
                     switch(e.key) {
                         case 'Escape':
+                            console.log('Touche Escape pressée');
                             closeCards();
                             break;
                         case 'ArrowLeft':
@@ -1123,6 +1152,14 @@
                             if (currentIndex < conseilsCards.length - 1) selectCard(currentIndex + 1);
                             break;
                     }
+                }
+            });
+            
+            // Bouton de secours - Double-clic sur la carte pour fermer
+            document.addEventListener('dblclick', function(e) {
+                if (e.target.closest('.conseil-card.selected')) {
+                    console.log('Double-clic sur carte sélectionnée - Fermeture');
+                    closeCards();
                 }
             });
             
@@ -1278,7 +1315,7 @@
         <section id="partners" class="section-padding">
             <div class="container">
                 <div class="section-header text-center reveal">
-                    <h2>Ils nous font confiance</h2>
+                    <h2>Nos références</h2>
                 </div>
                 <div class="partners-grid reveal">
                     <div class="partner-logo">
