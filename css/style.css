@@ -1293,6 +1293,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary);
@@ -1301,6 +1302,7 @@ body {
 .conseil-navigation.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .conseil-navigation:hover {
@@ -1342,11 +1344,13 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .conseil-overlay.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .conseil-card {
