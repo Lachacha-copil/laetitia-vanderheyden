@@ -500,10 +500,12 @@ body {
     }
     
     .seo-phrase-text {
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         padding: 2rem 1.5rem !important;
-        white-space: normal !important;
         line-height: 1.5 !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
     }
 }
 
@@ -2025,11 +2027,16 @@ footer::after {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .seo-phrase-section .container {
     max-width: 1200px !important;
     padding: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .seo-phrase-section::before {
@@ -2043,7 +2050,7 @@ footer::after {
 }
 
 .seo-phrase-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text);
     font-weight: 500;
     margin: 0 auto;
@@ -2057,7 +2064,8 @@ footer::after {
     border: 1px solid var(--glass-border);
     max-width: 1000px;
     position: relative;
-    white-space: nowrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .seo-phrase-text::before {
@@ -2406,11 +2414,13 @@ footer::after {
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
+    opacity: 0;
 }
 
 .faq-item.active .faq-answer {
     padding: 0 25px 25px 25px;
-    max-height: 300px;
+    max-height: 500px;
+    opacity: 1;
 }
 
 .faq-answer p {

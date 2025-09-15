@@ -220,26 +220,47 @@ if (contactForm) {
 
     // FAQ Accordion
     function initFAQ() {
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const toggle = item.querySelector('.faq-toggle');
+        // Attendre que le DOM soit complètement chargé
+        setTimeout(() => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            console.log('FAQ Items found:', faqItems.length);
             
-            if (question && toggle) {
-                question.addEventListener('click', () => {
-                    // Fermer tous les autres items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle l'item actuel
-                    item.classList.toggle('active');
-                });
+            if (faqItems.length === 0) {
+                console.log('No FAQ items found, retrying...');
+                setTimeout(initFAQ, 500);
+                return;
             }
-        });
+            
+            faqItems.forEach((item, index) => {
+                const question = item.querySelector('.faq-question');
+                
+                if (question) {
+                    // Supprimer les anciens event listeners
+                    question.removeEventListener('click', handleFAQClick);
+                    
+                    // Ajouter le nouvel event listener
+                    question.addEventListener('click', handleFAQClick);
+                    
+                    function handleFAQClick(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        console.log('FAQ clicked:', index);
+                        
+                        // Fermer tous les autres items
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle l'item actuel
+                        item.classList.toggle('active');
+                        console.log('FAQ active:', item.classList.contains('active'));
+                    }
+                }
+            });
+        }, 100);
     }
 
     // Initialize scroll on page load
@@ -249,6 +270,27 @@ if (contactForm) {
     updateScrollProgress();
     initCookieBanner();
     initFAQ();
+    
+    // Test FAQ direct
+    setTimeout(() => {
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.style.cursor = 'pointer';
+            question.addEventListener('click', function(e) {
+                e.preventDefault();
+                const faqItem = this.closest('.faq-item');
+                if (faqItem) {
+                    // Fermer tous les autres
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    // Toggle l'actuel
+                    faqItem.classList.toggle('active');
+                }
+            });
+        });
+    }, 1000);
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
