@@ -993,11 +993,18 @@ body {
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-xl);
     border-color: var(--primary-light);
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(25px);
+    animation: cardGlow 0.6s ease-out;
+}
+
+@keyframes cardGlow {
+    0% { box-shadow: var(--shadow-md); }
+    50% { box-shadow: 0 20px 40px rgba(0, 85, 255, 0.15); }
+    100% { box-shadow: var(--shadow-xl); }
 }
 
 .service-card:hover::before {
