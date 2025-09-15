@@ -889,50 +889,56 @@
             `;
             document.body.appendChild(overlay);
             
-            // Créer les boutons de navigation
+            // Créer les boutons de navigation élégants
             const navPrev = document.createElement('button');
-            navPrev.innerHTML = '❮';
+            navPrev.innerHTML = '‹';
             navPrev.style.cssText = `
                 position: fixed;
                 top: 50%;
-                left: 30px;
+                left: 20px;
                 transform: translateY(-50%);
                 z-index: 1001;
-                background: var(--primary);
+                background: linear-gradient(135deg, #0055ff 0%, #3b82f6 100%);
                 color: white;
                 border: none;
                 border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+                font-weight: bold;
                 cursor: pointer;
                 display: none;
                 align-items: center;
                 justify-content: center;
+                box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
+                transition: all 0.3s ease;
             `;
             
             const navNext = document.createElement('button');
-            navNext.innerHTML = '❯';
-            navNext.style.cssText = navPrev.style.cssText.replace('left: 30px', 'right: 30px');
+            navNext.innerHTML = '›';
+            navNext.style.cssText = navPrev.style.cssText.replace('left: 20px', 'right: 20px');
             
             const navClose = document.createElement('button');
-            navClose.innerHTML = '✕';
+            navClose.innerHTML = '×';
             navClose.style.cssText = `
                 position: fixed;
                 top: 20px;
                 right: 20px;
                 z-index: 1001;
-                background: #ef4444;
+                background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
                 color: white;
                 border: none;
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
-                font-size: 1rem;
+                font-size: 1.2rem;
+                font-weight: bold;
                 cursor: pointer;
                 display: none;
                 align-items: center;
                 justify-content: center;
+                box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+                transition: all 0.3s ease;
             `;
             
             document.body.appendChild(navPrev);
@@ -988,7 +994,9 @@
             conseilsCards.forEach((card, index) => {
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', (e) => {
+                    e.preventDefault();
                     e.stopPropagation();
+                    console.log('Clic sur carte:', index);
                     selectCard(index);
                 });
             });
@@ -1027,34 +1035,76 @@
     </script>
     
     <style>
-    /* DEBUG TEMPORAIRE - FORCER L'AFFICHAGE DES CARTES */
+    /* CARTES CONSEILS - STYLE PROFESSIONNEL */
     .conseil-card.selected {
         position: fixed !important;
-        top: 10% !important;
-        left: 10% !important;
-        right: 10% !important;
-        bottom: 10% !important;
-        width: 80% !important;
-        height: 80% !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 500px !important;
+        max-width: 90vw !important;
+        max-height: 70vh !important;
         z-index: 10000 !important;
         background: white !important;
-        border: 5px solid red !important;
-        border-radius: 15px !important;
-        padding: 30px !important;
-        box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) !important;
+        border: 2px solid #0055ff !important;
+        border-radius: 20px !important;
+        padding: 2rem !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
         overflow-y: auto !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        transform: none !important;
         margin: 0 !important;
     }
     
-    /* Forcer le contenu à être visible */
-    .conseil-card.selected * {
-        visibility: visible !important;
-        opacity: 1 !important;
-        color: black !important;
+    /* Contenu des cartes */
+    .conseil-card.selected h3 {
+        color: #1e293b !important;
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .conseil-card.selected p {
+        color: #64748b !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .conseil-card.selected ul {
+        color: #1e293b !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .conseil-card.selected .btn {
+        background: linear-gradient(135deg, #0055ff 0%, #3b82f6 100%) !important;
+        color: white !important;
+        border: none !important;
+        padding: 0.75rem 1.5rem !important;
+        border-radius: 10px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        margin-top: 1rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .conseil-card.selected .btn:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(0, 85, 255, 0.4) !important;
+    }
+    
+    /* Effets hover pour les boutons de navigation */
+    .conseil-navigation:hover {
+        transform: translateY(-50%) scale(1.1) !important;
+        box-shadow: 0 6px 20px rgba(0, 85, 255, 0.5) !important;
+    }
+    
+    .conseil-nav-close:hover {
+        transform: scale(1.1) !important;
+        box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5) !important;
     }
     </style>
     
