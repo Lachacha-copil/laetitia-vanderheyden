@@ -321,9 +321,14 @@ if (contactForm) {
     // Lancer le setup
     setupFAQ();
     
-    // Setup des cartes conseils interactives
+    // Setup des cartes conseils interactives - Système à piocher
     function setupConseilsCards() {
         console.log('Setting up conseils cards...');
+        
+        // Créer l'overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'conseil-overlay';
+        document.body.appendChild(overlay);
         
         setTimeout(() => {
             const conseilsCards = document.querySelectorAll('.conseil-card');
@@ -336,15 +341,23 @@ if (contactForm) {
                     
                     console.log('Conseil card clicked:', index);
                     
+                    // Si la carte est déjà sélectionnée, la fermer
+                    if (card.classList.contains('selected')) {
+                        card.classList.remove('selected');
+                        overlay.classList.remove('show');
+                        document.body.style.overflow = '';
+                        return;
+                    }
+                    
                     // Retirer la sélection des autres cartes
                     conseilsCards.forEach(otherCard => {
-                        if (otherCard !== card) {
-                            otherCard.classList.remove('selected');
-                        }
+                        otherCard.classList.remove('selected');
                     });
                     
-                    // Toggle la sélection de la carte actuelle
-                    card.classList.toggle('selected');
+                    // Sélectionner la carte actuelle
+                    card.classList.add('selected');
+                    overlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
                     
                     // Ajouter un effet de "pulse" temporaire
                     card.style.animation = 'pulse 0.6s ease-in-out';
@@ -356,18 +369,37 @@ if (contactForm) {
                 // Effet de survol pour indiquer l'interactivité
                 card.addEventListener('mouseenter', function() {
                     if (!card.classList.contains('selected')) {
-                        card.style.transform = 'translateY(-20px) rotate(0deg) scale(1.05)';
+                        const rotations = [-3, 2, -1, 1.5, -2];
+                        card.style.transform = `translateX(-50%) translateY(-10px) rotate(0deg) scale(1.02)`;
                     }
                 });
                 
                 card.addEventListener('mouseleave', function() {
                     if (!card.classList.contains('selected')) {
-                        // Retour à la position originale selon l'index
-                        const rotations = [-2, 1, -1, 2, 1.5];
-                        const translations = [-15, 10, -5, 15, -10];
-                        card.style.transform = `translateY(${translations[index]}px) rotate(${rotations[index]}deg)`;
+                        const rotations = [-3, 2, -1, 1.5, -2];
+                        card.style.transform = `translateX(-50%) translateY(0px) rotate(${rotations[index]}deg)`;
                     }
                 });
+            });
+            
+            // Fermer l'overlay en cliquant dessus
+            overlay.addEventListener('click', function() {
+                conseilsCards.forEach(card => {
+                    card.classList.remove('selected');
+                });
+                overlay.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+            
+            // Fermer avec Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    conseilsCards.forEach(card => {
+                        card.classList.remove('selected');
+                    });
+                    overlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
             });
             
             console.log('Conseils cards setup complete');
