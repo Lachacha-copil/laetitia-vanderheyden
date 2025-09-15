@@ -369,15 +369,31 @@ if (contactForm) {
                 // Effet de survol pour indiquer l'interactivité
                 card.addEventListener('mouseenter', function() {
                     if (!card.classList.contains('selected')) {
-                        const rotations = [-3, 2, -1, 1.5, -2];
                         card.style.transform = `translateX(-50%) translateY(-10px) rotate(0deg) scale(1.02)`;
+                        card.style.zIndex = '20';
                     }
                 });
                 
                 card.addEventListener('mouseleave', function() {
                     if (!card.classList.contains('selected')) {
                         const rotations = [-3, 2, -1, 1.5, -2];
-                        card.style.transform = `translateX(-50%) translateY(0px) rotate(${rotations[index]}deg)`;
+                        const translations = [0, 10, 20, 30, 40];
+                        card.style.transform = `translateX(-50%) translateY(${translations[index]}px) rotate(${rotations[index]}deg)`;
+                        card.style.zIndex = index + 1;
+                    }
+                });
+                
+                // Améliorer la détection de clic
+                card.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    card.style.transform = `translateX(-50%) translateY(-5px) rotate(0deg) scale(0.98)`;
+                });
+                
+                card.addEventListener('mouseup', function(e) {
+                    if (!card.classList.contains('selected')) {
+                        const rotations = [-3, 2, -1, 1.5, -2];
+                        const translations = [0, 10, 20, 30, 40];
+                        card.style.transform = `translateX(-50%) translateY(${translations[index]}px) rotate(${rotations[index]}deg)`;
                     }
                 });
             });

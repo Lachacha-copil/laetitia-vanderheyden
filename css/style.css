@@ -368,16 +368,94 @@ body {
 }
 
 #training-conference {
-    background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%) !important;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
     color: white !important;
-    border-top: 3px solid #fbbf24 !important;
-    border-bottom: 3px solid #fbbf24 !important;
+    border-top: 3px solid #60a5fa !important;
+    border-bottom: 3px solid #60a5fa !important;
     position: relative;
 }
 
 #training-conference .section-header h2,
 #training-conference .section-header p {
     color: white !important;
+}
+
+#training-conference h2,
+#training-conference h3,
+#training-conference h4,
+#training-conference p,
+#training-conference li {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#training-conference .btn {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+    color: #1e40af !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4) !important;
+}
+
+/* Section À Propos - Fond blanc pur */
+#about {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-top: 3px solid #e2e8f0 !important;
+    border-bottom: 3px solid #e2e8f0 !important;
+    position: relative;
+}
+
+#about .section-header h2,
+#about .section-header p {
+    color: #1e293b !important;
+}
+
+#about h2,
+#about h3,
+#about h4,
+#about p,
+#about li {
+    color: #1e293b !important;
+}
+
+/* Témoignages - Fond gris clair premium */
+#testimonials {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    color: #1e293b !important;
+    border-top: 3px solid #cbd5e1 !important;
+    border-bottom: 3px solid #cbd5e1 !important;
+}
+
+#testimonials .section-header h2,
+#testimonials .section-header p {
+    color: #1e293b !important;
+}
+
+/* FAQ - Fond blanc pur */
+#faq {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-top: 3px solid #e2e8f0 !important;
+    border-bottom: 3px solid #e2e8f0 !important;
+}
+
+#faq .section-header h2,
+#faq .section-header p {
+    color: #1e293b !important;
+}
+
+/* Contact - Fond gris clair premium */
+#contact {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
+    color: #1e293b !important;
+    border-top: 3px solid #94a3b8 !important;
+    border-bottom: 3px solid #94a3b8 !important;
+}
+
+#contact .section-header h2,
+#contact .section-header p {
+    color: #1e293b !important;
 }
 
 #training-conference::before {
@@ -408,8 +486,16 @@ body {
 }
 
 #partners {
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-top: 3px solid #e2e8f0 !important;
+    border-bottom: 3px solid #e2e8f0 !important;
     position: relative;
+}
+
+#partners .section-header h2,
+#partners .section-header p {
+    color: #1e293b !important;
 }
 
 #partners::before {
@@ -977,6 +1063,44 @@ body {
     cursor: pointer;
     z-index: 1;
     transform-origin: center bottom;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Zone cliquable étendue pour chaque carte */
+.conseils-grid .conseil-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+    background: transparent;
+    border-radius: 25px;
+}
+
+/* Indicateur de clic sur les cartes */
+.conseils-grid .conseil-card::after {
+    content: '👆 Cliquez pour lire';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    z-index: 30;
+}
+
+.conseils-grid .conseil-card:hover::after {
+    opacity: 1;
 }
 
 /* Positionnement en stack des cartes */
@@ -2229,11 +2353,12 @@ footer::after {
 }
 
 .seo-phrase-section {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+    color: #1e293b !important;
     padding: 4rem 2rem;
     margin: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 3px solid #86efac !important;
+    border-bottom: 3px solid #86efac !important;
     position: relative;
     width: 100%;
     box-sizing: border-box;
