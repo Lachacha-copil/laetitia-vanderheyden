@@ -171,17 +171,30 @@ if (contactForm) {
     });
 }
 
+    // Scroll Progress Bar
+    function updateScrollProgress() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        const progressBar = document.querySelector('.scroll-progress');
+        if (progressBar) {
+            progressBar.style.width = scrollPercent + '%';
+        }
+    }
+
     // Initialize scroll events
     window.addEventListener('scroll', function() {
         makeNavActive();
         headerScroll();
         toggleBackToTop();
+        updateScrollProgress();
     });
 
     // Initialize scroll on page load
     makeNavActive();
     headerScroll();
     toggleBackToTop();
+    updateScrollProgress();
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
