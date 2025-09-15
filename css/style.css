@@ -187,7 +187,7 @@ nav {
 }
 
 .logo img {
-    height: 100px;
+    height: 80px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -383,18 +383,16 @@ body {
 #training-conference h2,
 #training-conference h3,
 #training-conference h4,
-#training-conference p,
-#training-conference li {
+#training-conference p {
     color: white !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 #training-conference .btn {
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%) !important;
+    background: var(--primary-gradient) !important;
     color: white !important;
     font-weight: 600 !important;
     text-shadow: none !important;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+    box-shadow: var(--shadow-md) !important;
     border: none !important;
     padding: 12px 24px !important;
     border-radius: 8px !important;
@@ -404,7 +402,7 @@ body {
 
 #training-conference .btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 /* Texte dans la section formations - plus lisible */
@@ -415,29 +413,31 @@ body {
 }
 
 #training-conference .training-text li {
-    background: rgba(255, 255, 255, 0.95) !important;
-    color: #1e293b !important;
+    background: white !important;
+    color: var(--text) !important;
     padding: 15px 20px !important;
     margin: 10px 0 !important;
     border-radius: 12px !important;
-    border-left: 4px solid #8b5cf6 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-    backdrop-filter: blur(10px) !important;
+    border-left: 4px solid var(--primary) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
     display: flex !important;
     align-items: center !important;
     font-weight: 500 !important;
+    transition: all 0.3s ease !important;
 }
 
 #training-conference .training-text li i {
-    color: #8b5cf6 !important;
+    color: var(--primary) !important;
     margin-right: 12px !important;
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
+    width: 20px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
 }
 
 #training-conference .training-text li:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
-    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
 /* Section À Propos - Fond blanc pur */
@@ -488,17 +488,11 @@ body {
     color: #1e293b !important;
 }
 
-/* Contact - Fond bleu gris foncé comme services */
-#contact {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
-    color: white !important;
-    border-top: 3px solid #3b82f6 !important;
-    border-bottom: 3px solid #3b82f6 !important;
-}
+/* Contact - Section harmonisée avec fond clair */
 
 #contact .section-header h2,
 #contact .section-header p {
-    color: white !important;
+    color: var(--text) !important;
 }
 
 #contact h2,
@@ -507,11 +501,11 @@ body {
 #contact p,
 #contact li,
 #contact label {
-    color: white !important;
+    color: var(--text) !important;
 }
 
 #contact .form-group label {
-    color: white !important;
+    color: var(--text) !important;
 }
 
 #contact input,
@@ -607,10 +601,12 @@ body {
 }
 
 /* Section Contact avec fond premium */
+/* Section contact - fond clair harmonisé */
 #contact {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
+    color: var(--text) !important;
+    border-top: 3px solid #94a3b8 !important;
+    border-bottom: 3px solid #94a3b8 !important;
     position: relative;
 }
 
@@ -2376,7 +2372,7 @@ footer::after {
 }
 
 .footer-logo img {
-    height: 100px;
+    height: 80px;
     width: auto;
     margin-bottom: 0.5rem;
 }
