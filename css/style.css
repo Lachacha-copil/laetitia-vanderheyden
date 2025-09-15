@@ -530,6 +530,20 @@ body {
     padding: 12px 16px !important;
     font-size: 1rem !important;
     transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+}
+
+#contact select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 16px !important;
+    padding-right: 40px !important;
+    cursor: pointer !important;
 }
 
 #contact input:focus,
@@ -571,7 +585,7 @@ body {
     background: #ffffff !important;
     color: #1e293b !important;
     border-top: 3px solid #e2e8f0 !important;
-    border-bottom: 3px solid #e2e8f0 !important;
+    border-bottom: none !important;
     position: relative;
 }
 
@@ -1277,6 +1291,9 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
 }
 
 .conseil-navigation.show {
@@ -2509,7 +2526,7 @@ footer::after {
     color: #1e293b !important;
     padding: 4rem 2rem;
     margin: 0;
-    border-top: 3px solid #e2e8f0 !important;
+    border-top: none !important;
     border-bottom: 3px solid #e2e8f0 !important;
     position: relative;
     width: 100%;
