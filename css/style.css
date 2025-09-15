@@ -415,30 +415,24 @@ body {
 #training-conference .training-text li {
     background: white !important;
     color: var(--text) !important;
-    padding: 2rem !important;
+    padding: 1.5rem !important;
     margin: 10px 0 !important;
-    border-radius: 20px !important;
+    border-radius: 12px !important;
     border-left: 4px solid var(--primary) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-    display: block !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    display: flex !important;
+    align-items: center !important;
     font-weight: 500 !important;
     transition: all 0.3s ease !important;
     position: relative !important;
 }
 
 #training-conference .training-text li i {
-    font-size: 2.5rem !important;
-    margin-bottom: 1.5rem !important;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
-    position: relative !important;
-    display: block !important;
-    margin-right: 0 !important;
-    width: auto !important;
-    text-align: left !important;
+    font-size: 1.5rem !important;
+    margin-right: 1rem !important;
+    color: var(--primary) !important;
+    width: 30px !important;
+    text-align: center !important;
     flex-shrink: 0 !important;
 }
 
@@ -1926,6 +1920,7 @@ body {
     margin-top: 2rem;
 }
 
+
 .approach-list li {
     display: flex;
     align-items: center;
@@ -2525,6 +2520,32 @@ footer::after {
 }
 
 /* Back to Top Button */
+/* Bouton WhatsApp flottant */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    color: white;
+}
+
 .back-to-top {
     position: fixed;
     bottom: 2rem;
