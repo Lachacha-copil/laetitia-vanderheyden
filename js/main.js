@@ -99,11 +99,23 @@ document.addEventListener('DOMContentLoaded', function() {
         cardObserver.observe(card);
     });
 
-    // Contact Form
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+    // Contact Form - Version robuste
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
 
-if (contactForm) {
+    if (!contactForm) {
+        console.error('Formulaire de contact non trouvé!');
+        return;
+    }
+
+    if (!formMessage) {
+        console.error('Élément formMessage non trouvé!');
+        return;
+    }
+
+    console.log('Initialisation du formulaire de contact...');
+    
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -613,3 +625,15 @@ if (contactForm) {
         }
     });
 });
+
+// Initialiser le formulaire de contact
+document.addEventListener('DOMContentLoaded', function() {
+    initContactForm();
+});
+
+// Fallback si DOMContentLoaded a déjà été déclenché
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm);
+} else {
+    initContactForm();
+}

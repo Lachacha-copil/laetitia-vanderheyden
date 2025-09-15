@@ -655,7 +655,7 @@
                         </div>
                     </div>
                     <div class="contact-form reveal-right">
-    <form id="contactForm" action="https://formspree.io/f/mjkwqowb" method="POST">
+    <form id="contactForm" action="https://formspree.io/f/mjkwqowb" method="POST" novalidate>
         <div class="form-group">
             <label for="name">Nom complet *</label>
             <input type="text" id="name" name="name" required>
@@ -704,7 +704,12 @@
             <label for="privacy">J'accepte la <a href="privacy.html">politique de confidentialité</a> *</label>
         </div>
         <button type="submit" class="btn btn-primary btn-full">Demander un premier échange</button>
-        <p id="formMessage" style="margin-top: 1rem; color: #7DA87B; font-weight: 500;"></p>
+        <p id="formMessage" style="margin-top: 1rem; color: #7DA87B; font-weight: 500; min-height: 20px;"></p>
+        <noscript>
+            <p style="color: #3b82f6; font-weight: 600; margin-top: 1rem;">
+                ⚠️ JavaScript désactivé - Le formulaire sera soumis directement à Formspree
+            </p>
+        </noscript>
     </form>
 </div>
                 </div>
