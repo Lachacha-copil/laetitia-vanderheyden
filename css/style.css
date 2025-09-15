@@ -368,10 +368,10 @@ body {
 }
 
 #training-conference {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
     color: white !important;
-    border-top: 3px solid var(--primary-light) !important;
-    border-bottom: 3px solid var(--primary-light) !important;
+    border-top: 3px solid #3b82f6 !important;
+    border-bottom: 3px solid #3b82f6 !important;
     position: relative;
 }
 
@@ -972,6 +972,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    cursor: pointer;
     position: relative;
     border: 1px solid var(--glass-border);
 }
@@ -993,12 +994,13 @@ body {
 }
 
 .service-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-light);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(25px);
     animation: cardGlow 0.6s ease-out;
+    cursor: pointer;
 }
 
 @keyframes cardGlow {
@@ -1678,11 +1680,12 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-light);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(25px);
+    cursor: pointer;
 }
 
 .project-card i {
