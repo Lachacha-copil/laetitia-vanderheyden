@@ -1277,29 +1277,22 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Carte sélectionnée - Mode lecture - VERSION SIMPLIFIÉE */
-.conseil-card.selected {
-    position: fixed !important;
-    top: 10% !important;
-    left: 10% !important;
-    right: 10% !important;
-    bottom: 10% !important;
-    width: 80% !important;
-    height: 80% !important;
-    max-width: 800px !important;
-    max-height: 80vh !important;
-    margin: auto !important;
-    z-index: 9999 !important;
-    background: white !important;
-    border: 3px solid #0055ff !important;
-    border-radius: 15px !important;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8) !important;
-    overflow-y: auto !important;
-    padding: 20px !important;
-    transform: none !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+/* Carte sélectionnée - Mode lecture */
+.conseils-grid .conseil-card.selected {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90vw;
+    max-height: 80vh;
+    z-index: 1000;
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    padding: 2rem;
 }
 
 /* Navigation pour carte sélectionnée */
@@ -1610,25 +1603,21 @@ body {
         transform: translateY(-5px) scale(1.02) !important;
     }
     
-    .conseil-card.selected {
-        position: fixed !important;
-        top: 5% !important;
-        left: 5% !important;
-        right: 5% !important;
-        bottom: 5% !important;
-        width: 90% !important;
-        height: 90% !important;
-        max-width: none !important;
-        max-height: 90vh !important;
-        z-index: 9999 !important;
-        background: white !important;
-        border: 2px solid #0055ff !important;
-        border-radius: 10px !important;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) !important;
-        overflow-y: auto !important;
-        padding: 15px !important;
-        transform: none !important;
-        margin: 0 !important;
+    .conseils-grid .conseil-card.selected {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+        max-height: 70vh;
+        z-index: 1000;
+        background: white;
+        border: 2px solid var(--primary);
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        padding: 1.5rem;
     }
     
     .conseil-content {

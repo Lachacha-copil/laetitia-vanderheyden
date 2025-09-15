@@ -857,55 +857,48 @@
     </script>
     
     <script>
-    // Correction pour les cartes conseils
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('Correction des cartes conseils...');
-        
-        // Fonction pour créer les boutons de navigation visibles
-        function createNavigationButtons() {
-            // Supprimer les anciens boutons s'ils existent
-            const oldNavButtons = document.querySelectorAll('.conseil-navigation');
-            oldNavButtons.forEach(btn => btn.remove());
+        // Système de cartes conseils simplifié
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initialisation des cartes conseils...');
             
-            // Créer les nouveaux boutons
+            const conseilsCards = document.querySelectorAll('.conseil-card');
+            console.log('Cartes trouvées:', conseilsCards.length);
+            
+            if (conseilsCards.length === 0) {
+                console.log('Aucune carte conseil trouvée');
+                return;
+            }
+            
+            let currentIndex = -1;
+            
+            // Créer l'overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'conseil-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                pointer-events: none;
+            `;
+            document.body.appendChild(overlay);
+            
+            // Créer les boutons de navigation
             const navPrev = document.createElement('button');
-            navPrev.className = 'conseil-navigation conseil-nav-prev';
             navPrev.innerHTML = '❮';
             navPrev.style.cssText = `
                 position: fixed;
                 top: 50%;
                 left: 30px;
                 transform: translateY(-50%);
-                z-index: 1002;
-                background: rgba(0, 85, 255, 0.9);
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-                cursor: pointer;
-                box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
-                display: none;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.3s ease;
-            `;
-            
-            const navNext = document.createElement('button');
-            navNext.className = 'conseil-navigation conseil-nav-next';
-            navNext.innerHTML = '❯';
-            navNext.style.cssText = navPrev.style.cssText.replace('left: 30px', 'right: 30px');
-            
-            const navClose = document.createElement('button');
-            navClose.className = 'conseil-navigation conseil-nav-close';
-            navClose.innerHTML = '✕';
-            navClose.style.cssText = `
-                position: fixed;
-                top: 30px;
-                right: 30px;
-                z-index: 1002;
-                background: rgba(239, 68, 68, 0.9);
+                z-index: 1001;
+                background: var(--primary);
                 color: white;
                 border: none;
                 border-radius: 50%;
@@ -913,53 +906,43 @@
                 height: 50px;
                 font-size: 1.2rem;
                 cursor: pointer;
-                box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
                 display: none;
                 align-items: center;
                 justify-content: center;
-                transition: all 0.3s ease;
+            `;
+            
+            const navNext = document.createElement('button');
+            navNext.innerHTML = '❯';
+            navNext.style.cssText = navPrev.style.cssText.replace('left: 30px', 'right: 30px');
+            
+            const navClose = document.createElement('button');
+            navClose.innerHTML = '✕';
+            navClose.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1001;
+                background: #ef4444;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                cursor: pointer;
+                display: none;
+                align-items: center;
+                justify-content: center;
             `;
             
             document.body.appendChild(navPrev);
             document.body.appendChild(navNext);
             document.body.appendChild(navClose);
             
-            return { navPrev, navNext, navClose };
-        }
-        
-        // Attendre un peu puis initialiser
-        setTimeout(() => {
-            const conseilsCards = document.querySelectorAll('.conseil-card');
-            console.log('Cartes conseils trouvées:', conseilsCards.length);
-            
-            if (conseilsCards.length === 0) return;
-            
-            const { navPrev, navNext, navClose } = createNavigationButtons();
-            let currentIndex = -1;
-            
-            // Overlay
-            let overlay = document.querySelector('.conseil-overlay');
-            if (!overlay) {
-                overlay = document.createElement('div');
-                overlay.className = 'conseil-overlay';
-                overlay.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.7);
-                    z-index: 999;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.3s ease;
-                    pointer-events: none;
-                `;
-                document.body.appendChild(overlay);
-            }
-            
             // Fonction pour sélectionner une carte
             function selectCard(index) {
+                console.log('Sélection carte:', index);
+                
                 // Fermer toutes les cartes
                 conseilsCards.forEach(c => c.classList.remove('selected'));
                 
@@ -976,18 +959,18 @@
                     navNext.style.display = 'flex';
                     navClose.style.display = 'flex';
                     
-                    // Gérer la visibilité des boutons prev/next
+                    // Gérer la visibilité des boutons
                     navPrev.style.opacity = index > 0 ? '1' : '0.3';
                     navNext.style.opacity = index < conseilsCards.length - 1 ? '1' : '0.3';
                     
                     document.body.style.overflow = 'hidden';
-                    
-                    console.log('Carte sélectionnée:', index);
                 }
             }
             
             // Fonction pour fermer
             function closeCards() {
+                console.log('Fermeture des cartes');
+                
                 conseilsCards.forEach(c => c.classList.remove('selected'));
                 overlay.style.opacity = '0';
                 overlay.style.visibility = 'hidden';
@@ -999,14 +982,15 @@
                 
                 document.body.style.overflow = '';
                 currentIndex = -1;
-                
-                console.log('Cartes fermées');
             }
             
             // Event listeners pour les cartes
             conseilsCards.forEach((card, index) => {
                 card.style.cursor = 'pointer';
-                card.addEventListener('click', () => selectCard(index));
+                card.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selectCard(index);
+                });
             });
             
             // Event listeners pour les boutons
@@ -1038,42 +1022,10 @@
                 }
             });
             
-            console.log('Système de cartes conseils initialisé avec succès');
-        }, 1000);
-    });
+            console.log('Système de cartes conseils initialisé');
+        });
     </script>
     
-    <style>
-    /* CSS DE SECOURS POUR LES CARTES - PRIORITÉ ABSOLUE */
-    .conseil-card.selected {
-        position: fixed !important;
-        top: 50px !important;
-        left: 50px !important;
-        right: 50px !important;
-        bottom: 50px !important;
-        z-index: 99999 !important;
-        background: white !important;
-        border: 5px solid red !important;
-        border-radius: 10px !important;
-        padding: 20px !important;
-        box-shadow: 0 0 100px rgba(0, 0, 0, 0.9) !important;
-        overflow-y: auto !important;
-        transform: none !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: auto !important;
-        height: auto !important;
-        max-width: none !important;
-        max-height: none !important;
-    }
-    
-    /* TEST : Bordure rouge visible pour debug */
-    .conseil-card.selected * {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    </style>
 </div>
                 </div>
             </div>
