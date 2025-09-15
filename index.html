@@ -1039,26 +1039,41 @@
             });
             
             console.log('Système de cartes conseils initialisé avec succès');
-            
-            // Test immédiat : ajouter un indicateur visuel
-            conseilsCards.forEach((card, index) => {
-                card.title = `Carte ${index + 1} - Cliquez pour ouvrir`;
-                
-                // Test direct de la fonctionnalité
-                if (index === 0) {
-                    setTimeout(() => {
-                        console.log('Test : sélection de la première carte');
-                        selectCard(0);
-                        setTimeout(() => {
-                            console.log('Test : fermeture automatique');
-                            closeCards();
-                        }, 3000);
-                    }, 2000);
-                }
-            });
         }, 1000);
     });
     </script>
+    
+    <style>
+    /* CSS DE SECOURS POUR LES CARTES - PRIORITÉ ABSOLUE */
+    .conseil-card.selected {
+        position: fixed !important;
+        top: 50px !important;
+        left: 50px !important;
+        right: 50px !important;
+        bottom: 50px !important;
+        z-index: 99999 !important;
+        background: white !important;
+        border: 5px solid red !important;
+        border-radius: 10px !important;
+        padding: 20px !important;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.9) !important;
+        overflow-y: auto !important;
+        transform: none !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
+    }
+    
+    /* TEST : Bordure rouge visible pour debug */
+    .conseil-card.selected * {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    </style>
 </div>
                 </div>
             </div>
