@@ -321,6 +321,62 @@ if (contactForm) {
     // Lancer le setup
     setupFAQ();
     
+    // Setup des cartes conseils interactives
+    function setupConseilsCards() {
+        console.log('Setting up conseils cards...');
+        
+        setTimeout(() => {
+            const conseilsCards = document.querySelectorAll('.conseil-card');
+            console.log('Conseils cards found:', conseilsCards.length);
+            
+            conseilsCards.forEach((card, index) => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('Conseil card clicked:', index);
+                    
+                    // Retirer la sélection des autres cartes
+                    conseilsCards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('selected');
+                        }
+                    });
+                    
+                    // Toggle la sélection de la carte actuelle
+                    card.classList.toggle('selected');
+                    
+                    // Ajouter un effet de "pulse" temporaire
+                    card.style.animation = 'pulse 0.6s ease-in-out';
+                    setTimeout(() => {
+                        card.style.animation = '';
+                    }, 600);
+                });
+                
+                // Effet de survol pour indiquer l'interactivité
+                card.addEventListener('mouseenter', function() {
+                    if (!card.classList.contains('selected')) {
+                        card.style.transform = 'translateY(-20px) rotate(0deg) scale(1.05)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (!card.classList.contains('selected')) {
+                        // Retour à la position originale selon l'index
+                        const rotations = [-2, 1, -1, 2, 1.5];
+                        const translations = [-15, 10, -5, 15, -10];
+                        card.style.transform = `translateY(${translations[index]}px) rotate(${rotations[index]}deg)`;
+                    }
+                });
+            });
+            
+            console.log('Conseils cards setup complete');
+        }, 1000);
+    }
+    
+    // Lancer le setup des cartes conseils
+    setupConseilsCards();
+    
     // Test immédiat FAQ
     setTimeout(() => {
         console.log('Testing FAQ...');
