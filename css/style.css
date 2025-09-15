@@ -111,20 +111,23 @@ nav {
 }
 
 .contact-btn {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    background: var(--primary-gradient);
     color: white !important;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.8rem;
     border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     outline: none;
     overflow: hidden;
+    box-shadow: var(--shadow-md);
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
 }
 
 .menu-toggle {
@@ -274,12 +277,13 @@ body {
 
 /* Services Section */
 #services {
-    padding: 5px 0;
+    padding: 4rem 0;
     background: var(--background-alt);
 }
 
 .section-header {
     text-align: center;
+    margin-top: 2rem;
     margin-bottom: 5rem;
 }
 
@@ -1396,24 +1400,37 @@ footer::before {
 
 .seo-phrase-section {
     background: var(--background-alt);
-    padding: 2rem 0;
-    margin: 2rem 0;
+    padding: 3rem 0;
+    margin: 3rem 0;
 }
 
 .seo-phrase-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text);
     font-weight: 500;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
     text-align: center;
-    padding: 1.5rem 2rem;
+    padding: 2rem 2.5rem;
     background: white;
-    border-radius: 16px;
-    box-shadow: var(--shadow-md);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-light);
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+}
+
+.seo-phrase-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
 }
 
 .company-info {
