@@ -659,12 +659,12 @@ body {
     content: '';
     position: absolute;
     top: 20%;
-    right: -100px;
+    right: -50px;
     width: 280px;
     height: 280px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
     border-radius: 50% 30% 70% 40% / 30% 60% 40% 70%;
-    opacity: 0.8;
+    opacity: 0.9;
     animation: morph 16s ease-in-out infinite;
     z-index: 1;
 }
@@ -673,12 +673,12 @@ body {
     content: '';
     position: absolute;
     bottom: 25%;
-    left: -80px;
+    left: -40px;
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(147, 51, 234, 0.06) 100%);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(147, 51, 234, 0.08) 100%);
     border-radius: 30% 70% 50% 60% / 70% 40% 60% 30%;
-    opacity: 0.6;
+    opacity: 0.8;
     animation: morph 14s ease-in-out infinite reverse;
     z-index: 1;
 }
@@ -694,12 +694,12 @@ body {
     content: '';
     position: absolute;
     top: 15%;
-    right: -120px;
+    right: -60px;
     width: 250px;
     height: 250px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
     border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
-    opacity: 0.7;
+    opacity: 0.8;
     animation: morph 18s ease-in-out infinite;
     z-index: 1;
 }
@@ -708,12 +708,12 @@ body {
     content: '';
     position: absolute;
     bottom: 20%;
-    left: -90px;
+    left: -50px;
     width: 180px;
     height: 180px;
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.06) 0%, rgba(251, 191, 36, 0.04) 100%);
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(251, 191, 36, 0.06) 100%);
     border-radius: 60% 40% 30% 70% / 40% 50% 60% 30%;
-    opacity: 0.5;
+    opacity: 0.7;
     animation: morph 16s ease-in-out infinite reverse;
     z-index: 1;
 }
@@ -726,18 +726,19 @@ body {
     border-top: 3px solid #3b82f6 !important;
     border-bottom: 3px solid #3b82f6 !important;
     position: relative;
+    overflow: hidden;
 }
 
 #contact::before {
     content: '';
     position: absolute;
     top: 20%;
-    right: -100px;
+    right: -50px;
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(37, 99, 235, 0.06) 100%);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(37, 99, 235, 0.08) 100%);
     border-radius: 50% 30% 70% 40% / 30% 60% 40% 70%;
-    opacity: 0.6;
+    opacity: 0.8;
     animation: morph 20s ease-in-out infinite;
     z-index: 1;
 }
@@ -746,12 +747,12 @@ body {
     content: '';
     position: absolute;
     bottom: 15%;
-    left: -80px;
+    left: -40px;
     width: 220px;
     height: 220px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.06) 0%, rgba(34, 197, 94, 0.04) 100%);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.06) 100%);
     border-radius: 30% 70% 50% 60% / 70% 40% 60% 30%;
-    opacity: 0.5;
+    opacity: 0.7;
     animation: morph 16s ease-in-out infinite reverse;
     z-index: 1;
 }
@@ -2686,12 +2687,12 @@ footer::after {
     content: '';
     position: absolute;
     top: 15%;
-    right: -100px;
+    right: -50px;
     width: 220px;
     height: 220px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.04) 100%);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.06) 100%);
     border-radius: 50% 30% 70% 40% / 30% 60% 40% 70%;
-    opacity: 0.5;
+    opacity: 0.7;
     animation: morph 14s ease-in-out infinite;
     z-index: 1;
 }
@@ -2700,12 +2701,12 @@ footer::after {
     content: '';
     position: absolute;
     bottom: 20%;
-    left: -80px;
+    left: -40px;
     width: 180px;
     height: 180px;
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.04) 0%, rgba(251, 191, 36, 0.03) 100%);
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(251, 191, 36, 0.05) 100%);
     border-radius: 30% 70% 50% 60% / 70% 40% 60% 30%;
-    opacity: 0.4;
+    opacity: 0.6;
     animation: morph 16s ease-in-out infinite reverse;
     z-index: 1;
 }
@@ -3613,4 +3614,80 @@ footer::after {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     border-radius: 15px;
     border: 1px solid #e2e8f0;
+}
+
+/* Mobile responsive pour les cartes conseils */
+@media (max-width: 768px) {
+    .conseils-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .conseils-grid .conseil-card {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+        transform: none !important;
+        animation: slideInUp 0.6s ease-out both;
+        touch-action: manipulation;
+    }
+    
+    .conseils-grid .conseil-card:hover,
+    .conseils-grid .conseil-card.selected {
+        transform: translateY(-10px) scale(1.02) !important;
+    }
+    
+    /* Cartes sélectionnées sur mobile - plus grandes et mieux positionnées */
+    .conseils-grid .conseil-card.selected {
+        position: fixed !important;
+        top: 5% !important;
+        left: 5% !important;
+        right: 5% !important;
+        width: 90% !important;
+        max-width: 90% !important;
+        height: auto !important;
+        max-height: 85vh !important;
+        min-height: 300px !important;
+        transform: none !important;
+        z-index: 10000 !important;
+        overflow-y: auto !important;
+        padding: 1.5rem !important;
+        border-radius: 15px !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    /* Boutons de navigation sur mobile - plus gros et mieux positionnés */
+    .conseil-navigation {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.8rem !important;
+        z-index: 10001 !important;
+    }
+    
+    .conseil-nav-prev {
+        left: 10px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .conseil-nav-next {
+        right: 10px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .conseil-nav-close {
+        top: 10px !important;
+        right: 10px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.5rem !important;
+        transform: none !important;
+    }
+    
+    /* Overlay sur mobile */
+    .conseil-overlay {
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
 }

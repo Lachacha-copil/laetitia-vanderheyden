@@ -1120,6 +1120,13 @@
                 newCard.addEventListener('mousedown', handleCardClick, true);
                 newCard.addEventListener('touchstart', handleCardClick, true);
                 
+                // Gestion spécifique mobile - éviter les conflits
+                newCard.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleCardClick(e);
+                }, { passive: false });
+                
                 // Ajouter un attribut pour debug
                 newCard.setAttribute('data-card-index', index);
                 newCard.title = `Carte ${index + 1} - Cliquez pour ouvrir`;
@@ -1174,6 +1181,40 @@
                     closeCards();
                 }
             });
+            
+            // Gestion mobile - Fermeture par balayage vers le bas
+            let startY = 0;
+            let startX = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                if (e.target.closest('.conseil-card.selected')) {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }
+            }, { passive: true });
+            
+            document.addEventListener('touchend', function(e) {
+                if (e.target.closest('.conseil-card.selected')) {
+                    const endY = e.changedTouches[0].clientY;
+                    const endX = e.changedTouches[0].clientX;
+                    const deltaY = endY - startY;
+                    const deltaX = endX - startX;
+                    
+                    // Balayage vers le bas pour fermer
+                    if (deltaY > 100 && Math.abs(deltaX) < 50) {
+                        console.log('Balayage vers le bas détecté - Fermeture');
+                        closeCards();
+                    }
+                }
+            }, { passive: true });
+            
+            // Gestion mobile - Fermeture par tap sur l'overlay
+            overlay.addEventListener('touchend', function(e) {
+                if (e.target === overlay) {
+                    console.log('Tap sur overlay mobile - Fermeture');
+                    closeCards();
+                }
+            }, { passive: true });
             
             console.log('Système de cartes conseils initialisé');
             
