@@ -655,7 +655,7 @@
                         </div>
                     </div>
                     <div class="contact-form">
-    <form id="contactForm" method="POST">
+    <form id="contactForm" action="https://formspree.io/f/mjkwqowb" method="POST">
         <div class="form-group">
             <label for="name">Nom complet *</label>
             <input type="text" id="name" name="name" required>
@@ -708,12 +708,60 @@
     </form>
     
     <script>
-    // Script d'urgence pour bloquer TOUTE soumission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Gestion du formulaire de contact
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        console.log('Formulaire intercepté !');
-        return false;
+        
+        const formMessage = document.getElementById('formMessage');
+        const form = e.target;
+        
+        // Validation simple
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const sector = document.getElementById('sector').value;
+        const interest = document.getElementById('interest').value;
+        const message = document.getElementById('message').value.trim();
+        const privacy = document.getElementById('privacy').checked;
+
+        if (!name || !email || !phone || !sector || !interest || !message || !privacy) {
+            formMessage.textContent = "❌ Veuillez remplir tous les champs obligatoires.";
+            formMessage.style.color = "#DC6F6F";
+            return;
+        }
+
+        // Créer le sujet personnalisé
+        const interestText = document.querySelector(`#interest option[value="${interest}"]`).textContent;
+        const sectorText = document.querySelector(`#sector option[value="${sector}"]`).textContent;
+        
+        const formData = new FormData(form);
+        formData.append('_subject', `[${sectorText}] ${interestText} - ${name}`);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                formMessage.textContent = "✅ Merci ! Votre demande a été envoyée. Je vous contacte sous 24h pour échanger sur votre situation.";
+                formMessage.style.color = "#7DA87B";
+                form.reset();
+            } else {
+                formMessage.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
+                formMessage.style.color = "#DC6F6F";
+            }
+        } catch (error) {
+            formMessage.textContent = "❌ Une erreur s'est produite. Vérifiez votre connexion.";
+            formMessage.style.color = "#DC6F6F";
+        }
+
+        setTimeout(() => {
+            formMessage.textContent = "";
+        }, 6000);
     });
     </script>
 </div>
