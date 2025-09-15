@@ -218,7 +218,7 @@ if (contactForm) {
         }
     }
 
-    // FAQ Accordion - Version simplifiée
+    // FAQ Accordion - Version corrigée
     function initFAQ() {
         console.log('Initializing FAQ...');
         
@@ -233,34 +233,38 @@ if (contactForm) {
                 return;
             }
             
-            // Supprimer tous les anciens event listeners
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.replaceWith(question.cloneNode(true));
-            });
-            
-            // Ajouter les nouveaux event listeners
-            document.querySelectorAll('.faq-question').forEach((question, index) => {
-                question.style.cursor = 'pointer';
-                question.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+            // Ajouter les event listeners directement sur les faq-items
+            faqItems.forEach((faqItem, index) => {
+                const question = faqItem.querySelector('.faq-question');
+                if (question) {
+                    question.style.cursor = 'pointer';
+                    question.style.userSelect = 'none';
                     
-                    console.log('FAQ clicked:', index);
+                    // Supprimer les anciens listeners
+                    question.removeEventListener('click', handleFAQClick);
                     
-                    const faqItem = this.closest('.faq-item');
-                    if (!faqItem) return;
+                    // Ajouter le nouveau listener
+                    question.addEventListener('click', handleFAQClick);
                     
-                    // Fermer tous les autres
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        if (item !== faqItem) {
-                            item.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle l'actuel
-                    faqItem.classList.toggle('active');
-                    console.log('FAQ active:', faqItem.classList.contains('active'));
-                });
+                    function handleFAQClick(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        console.log('FAQ clicked:', index);
+                        console.log('FAQ item:', faqItem);
+                        
+                        // Fermer tous les autres
+                        faqItems.forEach(item => {
+                            if (item !== faqItem) {
+                                item.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle l'actuel
+                        faqItem.classList.toggle('active');
+                        console.log('FAQ active:', faqItem.classList.contains('active'));
+                    }
+                }
             });
             
             console.log('FAQ initialized successfully');
@@ -277,27 +281,45 @@ if (contactForm) {
     
     // FAQ sera initialisée par initFAQ()
     
-    // Event listener direct pour FAQ - Fallback
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.faq-question')) {
-            e.preventDefault();
-            const faqItem = e.target.closest('.faq-item');
-            if (faqItem) {
-                console.log('FAQ clicked via document listener');
-                
-                // Fermer tous les autres
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
+    // Version ultra-simple pour FAQ
+    function setupFAQ() {
+        console.log('Setting up FAQ...');
+        
+        // Attendre que tout soit chargé
+        setTimeout(() => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            console.log('FAQ items found for setup:', faqItems.length);
+            
+            faqItems.forEach((item, index) => {
+                // Ajouter un event listener sur tout l'item
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('FAQ item clicked:', index);
+                    
+                    // Fermer tous les autres
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle l'actuel
+                    item.classList.toggle('active');
+                    console.log('FAQ active:', item.classList.contains('active'));
                 });
                 
-                // Toggle l'actuel
-                faqItem.classList.toggle('active');
-                console.log('FAQ active:', faqItem.classList.contains('active'));
-            }
-        }
-    });
+                // Style pour indiquer que c'est cliquable
+                item.style.cursor = 'pointer';
+            });
+            
+            console.log('FAQ setup complete');
+        }, 1000);
+    }
+    
+    // Lancer le setup
+    setupFAQ();
     
     // Test immédiat FAQ
     setTimeout(() => {
@@ -307,7 +329,16 @@ if (contactForm) {
         
         if (faqItems.length > 0) {
             console.log('First FAQ item classes:', faqItems[0].classList.toString());
-            console.log('First FAQ question:', faqItems[0].querySelector('.faq-question'));
+            const firstQuestion = faqItems[0].querySelector('.faq-question');
+            console.log('First FAQ question:', firstQuestion);
+            console.log('First FAQ answer:', faqItems[0].querySelector('.faq-answer'));
+            
+            // Test de clic direct
+            if (firstQuestion) {
+                firstQuestion.addEventListener('click', function() {
+                    console.log('Direct click test successful!');
+                });
+            }
         }
     }, 2000);
 
