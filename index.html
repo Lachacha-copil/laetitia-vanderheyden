@@ -1026,6 +1026,38 @@
         });
     </script>
     
+    <style>
+    /* DEBUG TEMPORAIRE - FORCER L'AFFICHAGE DES CARTES */
+    .conseil-card.selected {
+        position: fixed !important;
+        top: 10% !important;
+        left: 10% !important;
+        right: 10% !important;
+        bottom: 10% !important;
+        width: 80% !important;
+        height: 80% !important;
+        z-index: 10000 !important;
+        background: white !important;
+        border: 5px solid red !important;
+        border-radius: 15px !important;
+        padding: 30px !important;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) !important;
+        overflow-y: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+        margin: 0 !important;
+    }
+    
+    /* Forcer le contenu à être visible */
+    .conseil-card.selected * {
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: black !important;
+    }
+    </style>
+    
 </div>
                 </div>
             </div>

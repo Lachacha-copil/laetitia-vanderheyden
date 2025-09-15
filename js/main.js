@@ -620,14 +620,6 @@ function initContactForm() {
     });
 });
 
-// Initialiser le formulaire de contact
-document.addEventListener('DOMContentLoaded', function() {
-    initContactForm();
-});
+// Formulaire de contact géré en inline dans index.html
 
-// Fallback si DOMContentLoaded a déjà été déclenché
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContactForm);
-} else {
-    initContactForm();
-}
+// Fallback géré en inline dans index.html
