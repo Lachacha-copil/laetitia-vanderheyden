@@ -1904,7 +1904,6 @@ footer {
 
 .partner-logo img {
     max-height: 80px;
-    height: 80px;
     width: auto;
     filter: grayscale(100%);
     transition: all 0.3s ease;

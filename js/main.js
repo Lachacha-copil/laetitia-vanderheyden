@@ -110,9 +110,12 @@ if (contactForm) {
         // Form validation
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const sector = document.getElementById('sector').value;
+        const interest = document.getElementById('interest').value;
         const message = document.getElementById('message').value.trim();
 
-        if (!name || !email || !message) {
+        if (!name || !email || !phone || !sector || !interest || !message) {
             formMessage.textContent = "❌ Veuillez remplir tous les champs obligatoires.";
             formMessage.style.color = "#DC6F6F";
             return;
@@ -125,11 +128,19 @@ if (contactForm) {
             return;
         }
 
+        // Créer l'objet email avec la problématique
+        const interestText = document.querySelector(`#interest option[value="${interest}"]`).textContent;
+        const sectorText = document.querySelector(`#sector option[value="${sector}"]`).textContent;
+        const emailSubject = `[${sectorText}] ${interestText} - ${name}`;
+
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('sector', sectorText);
+        formData.append('interest', interestText);
         formData.append('message', message);
-        formData.append('_subject', 'Nouveau message du site web');
+        formData.append('_subject', emailSubject);
 
         try {
             const response = await fetch('https://formspree.io/f/mjkwqowb', {
@@ -141,7 +152,7 @@ if (contactForm) {
             });
 
             if (response.ok) {
-                formMessage.textContent = "✅ Merci pour votre message. Je vous contacterai bientôt !";
+                formMessage.textContent = "✅ Merci ! Votre demande a été envoyée. Je vous contacte sous 24h pour échanger sur votre situation.";
                 formMessage.style.color = "#7DA87B";
                 contactForm.reset();
             } else {

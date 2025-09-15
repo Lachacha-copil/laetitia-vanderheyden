@@ -642,7 +642,23 @@
             <label for="email">Email *</label>
             <input type="email" id="email" name="email" required>
         </div>
-
+        <div class="form-group">
+            <label for="phone">Téléphone *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Ex: +32 498 78 83 54">
+        </div>
+        <div class="form-group">
+            <label for="sector">Secteur d'activité *</label>
+            <select id="sector" name="sector" required>
+                <option value="">Choisissez votre secteur...</option>
+                <option value="tpe_pme">TPE/PME</option>
+                <option value="asbl">ASBL/Association</option>
+                <option value="independant">Indépendant/Consultant</option>
+                <option value="artisan">Artisan</option>
+                <option value="commercial">Commerce</option>
+                <option value="services">Services</option>
+                <option value="autre">Autre</option>
+            </select>
+        </div>
         <div class="form-group">
             <label for="interest">Quelle est votre problématique ? *</label>
             <select id="interest" name="interest" required>
@@ -659,7 +675,7 @@
         </div>
         <div class="form-group">
             <label for="message">Décrivez-moi votre situation en quelques mots *</label>
-            <textarea id="message" name="message" rows="5" placeholder="Ex: Je passe 2h par jour à relancer mes clients, j'ai 3 outils différents qui ne communiquent pas entre eux..." required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Ex: Je passe 2h par jour à relancer mes clients, j'ai 3 outils différents qui ne communiquent pas entre eux, mes factures traînent parfois 3 mois..." required></textarea>
         </div>
         <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
             <input type="checkbox" id="privacy" required style="width: auto;">
@@ -683,7 +699,7 @@
                         <img src="public/Logo_Adminetech_Bleu_2024.png" alt="Logo Adminetech" loading="lazy">
                     </div>
                     <div class="partner-logo">
-                        <img src="public/logo_produweb.svg" alt="Logo Produweb" loading="lazy" style="max-height: 80px; width: auto; height: 80px;">
+                        <img src="public/logo_produweb.svg" alt="Logo Produweb" loading="lazy" style="max-height: 60px; width: auto;">
                     </div>
                 </div>
             </div>
