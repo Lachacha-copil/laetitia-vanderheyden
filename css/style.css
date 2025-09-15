@@ -116,6 +116,8 @@ body {
     padding: 1.5rem 0;
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cookie-banner.show {
@@ -297,9 +299,9 @@ body {
 
 /* Sections avec fond alterné - Premium avec contrastes marqués */
 #services {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border-top: 2px solid rgba(0, 0, 0, 0.08);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    border-top: 2px solid rgba(0, 0, 0, 0.08) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08) !important;
     position: relative;
 }
 
@@ -314,7 +316,7 @@ body {
 }
 
 #results {
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%) !important;
     position: relative;
 }
 
@@ -651,13 +653,7 @@ body {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* Services Section */
-#services {
-    padding: 4rem 0;
-    background: var(--background-alt);
-    position: relative;
-    overflow: hidden;
-}
+/* Services Section - Styles de base supprimés car déjà définis plus haut */
 
 /* Éléments décoratifs pour la section services */
 #services::before {
@@ -2205,7 +2201,9 @@ footer::after {
     }
 
     .menu-toggle {
-        display: flex;
+        display: flex !important;
+        position: relative;
+        z-index: 1001;
     }
 
     .menu-toggle.active .bar:nth-child(1) {
