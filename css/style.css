@@ -394,10 +394,10 @@ body {
     text-shadow: none !important;
     box-shadow: var(--shadow-md) !important;
     border: none !important;
-    padding: 12px 24px !important;
-    border-radius: 8px !important;
-    font-size: 1rem !important;
-    transition: all 0.3s ease !important;
+    padding: 1rem 2rem !important;
+    border-radius: 50px !important;
+    font-size: 0.95rem !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #training-conference .btn:hover {
@@ -415,29 +415,36 @@ body {
 #training-conference .training-text li {
     background: white !important;
     color: var(--text) !important;
-    padding: 15px 20px !important;
+    padding: 2rem !important;
     margin: 10px 0 !important;
-    border-radius: 12px !important;
+    border-radius: 20px !important;
     border-left: 4px solid var(--primary) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-    display: flex !important;
-    align-items: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    display: block !important;
     font-weight: 500 !important;
     transition: all 0.3s ease !important;
+    position: relative !important;
 }
 
 #training-conference .training-text li i {
-    color: var(--primary) !important;
-    margin-right: 12px !important;
-    font-size: 1.1rem !important;
-    width: 20px !important;
-    text-align: center !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    position: relative !important;
+    display: block !important;
+    margin-right: 0 !important;
+    width: auto !important;
+    text-align: left !important;
     flex-shrink: 0 !important;
 }
 
 #training-conference .training-text li:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Section À Propos - Fond blanc pur */
@@ -492,7 +499,7 @@ body {
 
 #contact .section-header h2,
 #contact .section-header p {
-    color: var(--text) !important;
+    color: white !important;
 }
 
 #contact h2,
@@ -501,19 +508,42 @@ body {
 #contact p,
 #contact li,
 #contact label {
-    color: var(--text) !important;
+    color: white !important;
 }
 
 #contact .form-group label {
-    color: var(--text) !important;
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
+#contact form {
+    background: white !important;
+    padding: 2rem !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    margin-top: 2rem !important;
 }
 
 #contact input,
 #contact select,
 #contact textarea {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: white !important;
     color: #1e293b !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+#contact input:focus,
+#contact select:focus,
+#contact textarea:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    outline: none !important;
 }
 
 #training-conference::before {
@@ -601,12 +631,12 @@ body {
 }
 
 /* Section Contact avec fond premium */
-/* Section contact - fond clair harmonisé */
+/* Contact - Fond bleu gris foncé comme services */
 #contact {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
-    color: var(--text) !important;
-    border-top: 3px solid #94a3b8 !important;
-    border-bottom: 3px solid #94a3b8 !important;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+    color: white !important;
+    border-top: 3px solid #3b82f6 !important;
+    border-bottom: 3px solid #3b82f6 !important;
     position: relative;
 }
 
