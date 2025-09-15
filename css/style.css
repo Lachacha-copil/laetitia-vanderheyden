@@ -500,9 +500,9 @@ body {
     }
     
     .seo-phrase-text {
-        font-size: 0.95rem !important;
+        font-size: 1rem !important;
         padding: 2rem 1.5rem !important;
-        line-height: 1.5 !important;
+        line-height: 1.4 !important;
         max-width: 100% !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
@@ -2033,7 +2033,7 @@ footer::after {
 }
 
 .seo-phrase-section .container {
-    max-width: 1200px !important;
+    max-width: 1400px !important;
     padding: 0 !important;
     width: 100%;
     box-sizing: border-box;
@@ -2050,11 +2050,11 @@ footer::after {
 }
 
 .seo-phrase-text {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text);
     font-weight: 500;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.5;
     text-align: center;
     padding: 2.5rem 3rem;
     background: rgba(255, 255, 255, 0.8);
@@ -2062,7 +2062,7 @@ footer::after {
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--glass-border);
-    max-width: 1000px;
+    max-width: 1200px;
     position: relative;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -2326,6 +2326,7 @@ footer::after {
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
+    cursor: pointer;
 }
 
 .faq-item::before {
