@@ -390,11 +390,28 @@ body {
 }
 
 #training-conference .btn {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
-    color: #1e40af !important;
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%) !important;
+    color: white !important;
     font-weight: 700 !important;
     text-shadow: none !important;
-    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Cartes dans la section formations - texte foncé */
+#training-conference .card,
+#training-conference .service-card,
+#training-conference .project-card {
+    background: white !important;
+    color: #1e293b !important;
+}
+
+#training-conference .card h3,
+#training-conference .card p,
+#training-conference .service-card h3,
+#training-conference .service-card p,
+#training-conference .project-card h3,
+#training-conference .project-card p {
+    color: #1e293b !important;
 }
 
 /* Section À Propos - Fond blanc pur */
@@ -445,17 +462,38 @@ body {
     color: #1e293b !important;
 }
 
-/* Contact - Fond gris clair premium */
+/* Contact - Fond bleu gris foncé comme services */
 #contact {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
-    color: #1e293b !important;
-    border-top: 3px solid #94a3b8 !important;
-    border-bottom: 3px solid #94a3b8 !important;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+    color: white !important;
+    border-top: 3px solid #3b82f6 !important;
+    border-bottom: 3px solid #3b82f6 !important;
 }
 
 #contact .section-header h2,
 #contact .section-header p {
+    color: white !important;
+}
+
+#contact h2,
+#contact h3,
+#contact h4,
+#contact p,
+#contact li,
+#contact label {
+    color: white !important;
+}
+
+#contact .form-group label {
+    color: white !important;
+}
+
+#contact input,
+#contact select,
+#contact textarea {
+    background: rgba(255, 255, 255, 0.95) !important;
     color: #1e293b !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 #training-conference::before {
@@ -465,7 +503,7 @@ body {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 #latest-facebook-post {
@@ -678,7 +716,7 @@ body {
     height: 200px;
     background: var(--primary-gradient);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    opacity: 0.12;
+    opacity: 0.25;
     animation: morph 8s ease-in-out infinite;
     z-index: 1;
 }
@@ -823,7 +861,7 @@ body {
     height: 120px;
     background: var(--primary-gradient);
     border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
-    opacity: 0.12;
+    opacity: 0.25;
     animation: morph 12s ease-in-out infinite;
     z-index: 1;
 }
@@ -993,7 +1031,7 @@ body {
     height: 150px;
     background: var(--accent-gradient);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    opacity: 0.06;
+    opacity: 0.15;
     animation: morph 15s ease-in-out infinite;
 }
 
@@ -1040,7 +1078,7 @@ body {
     height: 300px;
     background: var(--primary-gradient);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    opacity: 0.03;
+    opacity: 0.12;
     animation: morph 18s ease-in-out infinite;
 }
 
@@ -1080,27 +1118,39 @@ body {
     border-radius: 25px;
 }
 
-/* Indicateur de clic sur les cartes */
+/* Indicateur de clic sur les cartes - Plus visible */
 .conseils-grid .conseil-card::after {
     content: '👆 Cliquez pour lire';
     position: absolute;
-    top: -30px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(139, 92, 246, 0.95);
     color: white;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
     white-space: nowrap;
     z-index: 30;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 .conseils-grid .conseil-card:hover::after {
     opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+/* Amélioration de la zone cliquable */
+.conseils-grid .conseil-card {
+    cursor: pointer;
+    user-select: none;
+}
+
+.conseils-grid .conseil-card:hover {
+    cursor: pointer;
 }
 
 /* Positionnement en stack des cartes */
@@ -1581,32 +1631,35 @@ body {
     /* Assurez-vous que la classe section-padding est bien appliquée dans votre HTML */
 }
 
-/* Éléments décoratifs pour la section training */
+/* Éléments décoratifs pour la section training - Plus visibles */
 #training-conference::before {
     content: '';
     position: absolute;
-    top: 25%;
-    right: -110px;
+    top: 20%;
+    right: -70px;
     width: 200px;
     height: 200px;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 100%);
     border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
-    opacity: 0.04;
+    opacity: 1;
     animation: morph 14s ease-in-out infinite;
+    z-index: 1;
 }
 
 #training-conference::after {
     content: '';
     position: absolute;
-    bottom: 10%;
-    left: -130px;
-    width: 240px;
-    height: 240px;
-    background: var(--primary-gradient);
-    border-radius: 50%;
-    opacity: 0.06;
-    animation: float 9s ease-in-out infinite;
+    bottom: 20%;
+    left: -80px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 60% 40% 30% 70% / 40% 50% 60% 30%;
+    opacity: 0.8;
+    animation: morph 18s ease-in-out infinite reverse;
+    z-index: 1;
 }
+
 
 .training-content {
     display: grid;
@@ -2202,7 +2255,7 @@ select::-ms-expand {
     height: 200px;
     background: var(--primary-gradient);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    opacity: 0.04;
+    opacity: 0.15;
     animation: morph 13s ease-in-out infinite;
 }
 
@@ -2353,12 +2406,12 @@ footer::after {
 }
 
 .seo-phrase-section {
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+    background: #ffffff !important;
     color: #1e293b !important;
     padding: 4rem 2rem;
     margin: 0;
-    border-top: 3px solid #86efac !important;
-    border-bottom: 3px solid #86efac !important;
+    border-top: 3px solid #e2e8f0 !important;
+    border-bottom: 3px solid #e2e8f0 !important;
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -3180,7 +3233,7 @@ footer::after {
     height: 160px;
     background: var(--primary-gradient);
     border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
-    opacity: 0.05;
+    opacity: 0.15;
     animation: morph 10s ease-in-out infinite;
 }
 

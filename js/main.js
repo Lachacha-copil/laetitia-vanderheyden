@@ -364,6 +364,14 @@ if (contactForm) {
                     setTimeout(() => {
                         card.style.animation = '';
                     }, 600);
+                    
+                    // Scroll vers la carte sélectionnée
+                    setTimeout(() => {
+                        card.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                    }, 100);
                 });
                 
                 // Effet de survol pour indiquer l'interactivité
