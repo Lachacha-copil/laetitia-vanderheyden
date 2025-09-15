@@ -427,7 +427,113 @@ if (contactForm) {
             });
             
             console.log('Conseils cards setup complete');
+            
+            // Ajouter la navigation après le setup initial
+            addConseilsNavigation(conseilsCards);
         }, 1000);
+    }
+    
+    // Fonction pour ajouter la navigation aux cartes conseils
+    function addConseilsNavigation(conseilsCards) {
+        // Créer les boutons de navigation
+        const navPrev = document.createElement('div');
+        navPrev.className = 'conseil-navigation conseil-nav-prev';
+        navPrev.innerHTML = '‹';
+        document.body.appendChild(navPrev);
+        
+        const navNext = document.createElement('div');
+        navNext.className = 'conseil-navigation conseil-nav-next';
+        navNext.innerHTML = '›';
+        document.body.appendChild(navNext);
+        
+        const navClose = document.createElement('div');
+        navClose.className = 'conseil-navigation conseil-nav-close';
+        navClose.innerHTML = '×';
+        document.body.appendChild(navClose);
+        
+        let currentCardIndex = -1;
+        
+        // Navigation précédente
+        navPrev.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentCardIndex > 0) {
+                selectConseilCard(conseilsCards[currentCardIndex - 1], currentCardIndex - 1);
+            }
+        });
+        
+        // Navigation suivante
+        navNext.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentCardIndex < conseilsCards.length - 1) {
+                selectConseilCard(conseilsCards[currentCardIndex + 1], currentCardIndex + 1);
+            }
+        });
+        
+        // Fermer
+        navClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeConseilCard();
+        });
+        
+        // Navigation clavier
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft' && currentCardIndex > 0) {
+                selectConseilCard(conseilsCards[currentCardIndex - 1], currentCardIndex - 1);
+            } else if (e.key === 'ArrowRight' && currentCardIndex < conseilsCards.length - 1) {
+                selectConseilCard(conseilsCards[currentCardIndex + 1], currentCardIndex + 1);
+            }
+        });
+        
+        function selectConseilCard(card, index) {
+            // Fermer la carte actuelle
+            closeConseilCard();
+            
+            currentCardIndex = index;
+            card.classList.add('selected');
+            document.querySelector('.conseil-overlay').classList.add('show');
+            navPrev.classList.add('show');
+            navNext.classList.add('show');
+            navClose.classList.add('show');
+            
+            // Masquer la flèche précédente si c'est la première carte
+            if (index === 0) {
+                navPrev.style.opacity = '0.3';
+                navPrev.style.pointerEvents = 'none';
+            } else {
+                navPrev.style.opacity = '1';
+                navPrev.style.pointerEvents = 'auto';
+            }
+            
+            // Masquer la flèche suivante si c'est la dernière carte
+            if (index === conseilsCards.length - 1) {
+                navNext.style.opacity = '0.3';
+                navNext.style.pointerEvents = 'none';
+            } else {
+                navNext.style.opacity = '1';
+                navNext.style.pointerEvents = 'auto';
+            }
+            
+            // Empêcher le scroll du body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeConseilCard() {
+            const selectedCard = document.querySelector('.conseil-card.selected');
+            if (selectedCard) {
+                selectedCard.classList.remove('selected');
+            }
+            document.querySelector('.conseil-overlay').classList.remove('show');
+            navPrev.classList.remove('show');
+            navNext.classList.remove('show');
+            navClose.classList.remove('show');
+            currentCardIndex = -1;
+            
+            // Restaurer le scroll du body
+            document.body.style.overflow = 'auto';
+        }
     }
     
     // Lancer le setup des cartes conseils
