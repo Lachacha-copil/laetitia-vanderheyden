@@ -103,8 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
+console.log('Contact form found:', contactForm);
+console.log('Form message found:', formMessage);
+
 if (contactForm) {
+    console.log('Setting up contact form...');
     contactForm.addEventListener('submit', async function(e) {
+        console.log('Form submitted!');
         e.preventDefault();
 
         // Form validation
