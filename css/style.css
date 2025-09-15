@@ -2128,23 +2128,28 @@ body {
 }
 
 .credentials-responsive {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .credential {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 15px;
-    background: white;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    position: relative;
     flex-direction: column;
+    align-items: flex-start;
+    flex: 0 0 calc(50% - 12.5px);
+    max-width: 400px;
+    min-width: 300px;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .credential .benefit-subtle {
@@ -2176,20 +2181,22 @@ body {
 }
 
 .credential:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary);
 }
 
 .credential i {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    background: linear-gradient(135deg, var(--primary) 0%, var(--gradient-end) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 2rem;
-    margin-right: 1.5rem;
-    margin-top: 0.25rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     position: relative;
-    display: inline-block;
+    display: block;
+    text-align: center;
+    width: 100%;
 }
 
 .credential i::after {
@@ -3074,10 +3081,11 @@ footer::after {
 }
 
 .credentials-responsive {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 /* Responsive */
@@ -3425,5 +3433,19 @@ footer::after {
     
     #partners.section-padding {
         padding: 30px 0;
+    }
+    
+    /* Responsivité pour les créations */
+    .credentials-responsive {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .credential {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+        min-width: auto;
     }
 }
