@@ -116,76 +116,65 @@ function initContactForm() {
 
     console.log('Initialisation du formulaire de contact...');
     
-    contactForm.addEventListener('submit', submitForm);
-}
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-async function submitForm(e) {
-    e.preventDefault();
-    
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+        // Form validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const sector = document.getElementById('sector').value;
+        const interest = document.getElementById('interest').value;
+        const message = document.getElementById('message').value.trim();
+        const privacy = document.getElementById('privacy').checked;
 
-    // Form validation
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const sector = document.getElementById('sector').value;
-    const interest = document.getElementById('interest').value;
-    const message = document.getElementById('message').value.trim();
+        if (!name || !email || !phone || !sector || !interest || !message || !privacy) {
+            formMessage.textContent = "❌ Veuillez remplir tous les champs obligatoires.";
+            formMessage.style.color = "#DC6F6F";
+            return;
+        }
 
-    if (!name || !email || !phone || !sector || !interest || !message) {
-        formMessage.textContent = "❌ Veuillez remplir tous les champs obligatoires.";
-        formMessage.style.color = "#DC6F6F";
-        return;
-    }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            formMessage.textContent = "❌ Veuillez entrer une adresse email valide.";
+            formMessage.style.color = "#DC6F6F";
+            return;
+        }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        formMessage.textContent = "❌ Veuillez entrer une adresse email valide.";
-        formMessage.style.color = "#DC6F6F";
-        return;
-    }
+        // Créer l'objet email avec la problématique
+        const interestText = document.querySelector(`#interest option[value="${interest}"]`).textContent;
+        const sectorText = document.querySelector(`#sector option[value="${sector}"]`).textContent;
+        const emailSubject = `[${sectorText}] ${interestText} - ${name}`;
 
-    // Créer l'objet email avec la problématique
-    const interestText = document.querySelector(`#interest option[value="${interest}"]`).textContent;
-    const sectorText = document.querySelector(`#sector option[value="${sector}"]`).textContent;
-    const emailSubject = `[${sectorText}] ${interestText} - ${name}`;
+        const formData = new FormData(contactForm);
+        formData.append('_subject', emailSubject);
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('phone', phone);
-    formData.append('sector', sectorText);
-    formData.append('interest', interestText);
-    formData.append('message', message);
-    formData.append('_subject', emailSubject);
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-    try {
-        const response = await fetch('https://formspree.io/f/mjkwqowb', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
+            if (response.ok) {
+                formMessage.textContent = "✅ Merci ! Votre demande a été envoyée. Je vous contacte sous 24h pour échanger sur votre situation.";
+                formMessage.style.color = "#7DA87B";
+                contactForm.reset();
+            } else {
+                formMessage.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
+                formMessage.style.color = "#DC6F6F";
             }
-        });
-
-        if (response.ok) {
-            formMessage.textContent = "✅ Merci ! Votre demande a été envoyée. Je vous contacte sous 24h pour échanger sur votre situation.";
-            formMessage.style.color = "#7DA87B";
-            contactForm.reset();
-        } else {
-            formMessage.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
+        } catch (error) {
+            formMessage.textContent = "❌ Une erreur s’est produite. Vérifiez votre connexion.";
             formMessage.style.color = "#DC6F6F";
         }
-    } catch (error) {
-        formMessage.textContent = "❌ Une erreur s’est produite. Vérifiez votre connexion.";
-        formMessage.style.color = "#DC6F6F";
-    }
 
-    // Facultatif : efface le message après 6 secondes
-    setTimeout(() => {
-        formMessage.textContent = "";
-    }, 6000);
+        setTimeout(() => {
+            formMessage.textContent = "";
+        }, 6000);
+    });
 }
 
     // Scroll Progress Bar
