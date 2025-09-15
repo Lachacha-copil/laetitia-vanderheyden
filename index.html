@@ -725,8 +725,17 @@
         const privacy = document.getElementById('privacy').checked;
 
         if (!name || !email || !phone || !sector || !interest || !message || !privacy) {
-            formMessage.textContent = "❌ Veuillez remplir tous les champs obligatoires.";
-            formMessage.style.color = "#DC6F6F";
+            formMessage.innerHTML = `
+                <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+                            color: white; 
+                            padding: 1rem; 
+                            border-radius: 8px; 
+                            border-left: 4px solid #991b1b;
+                            margin-top: 1rem;">
+                    <strong>⚠️ Champs manquants</strong><br>
+                    Veuillez remplir tous les champs obligatoires pour envoyer votre message.
+                </div>
+            `;
             return;
         }
 
@@ -747,21 +756,248 @@
             });
 
             if (response.ok) {
-                formMessage.textContent = "✅ Merci ! Votre demande a été envoyée. Je vous contacte sous 24h pour échanger sur votre situation.";
-                formMessage.style.color = "#7DA87B";
+                formMessage.innerHTML = `
+                    <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+                                color: white; 
+                                padding: 1.5rem; 
+                                border-radius: 12px; 
+                                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+                                border-left: 4px solid #065f46;
+                                margin-top: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="background: rgba(255,255,255,0.2); 
+                                       border-radius: 50%; 
+                                       width: 40px; 
+                                       height: 40px; 
+                                       display: flex; 
+                                       align-items: center; 
+                                       justify-content: center;
+                                       font-size: 1.2rem;">✓</div>
+                            <div>
+                                <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; font-weight: 600;">Message envoyé avec succès !</h4>
+                                <p style="margin: 0; opacity: 0.9; font-size: 0.95rem;">Merci ${name} ! Votre demande a été reçue. Nous vous contacterons sous 24h pour échanger sur votre situation et vous proposer des solutions adaptées.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
                 form.reset();
             } else {
-                formMessage.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
-                formMessage.style.color = "#DC6F6F";
+                formMessage.innerHTML = `
+                    <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); 
+                                color: white; 
+                                padding: 1rem; 
+                                border-radius: 8px; 
+                                border-left: 4px solid #92400e;
+                                margin-top: 1rem;">
+                        <strong>⚠️ Erreur d'envoi</strong><br>
+                        Une erreur technique est survenue. Veuillez réessayer dans quelques instants ou contactez-nous directement.
+                    </div>
+                `;
             }
         } catch (error) {
-            formMessage.textContent = "❌ Une erreur s'est produite. Vérifiez votre connexion.";
-            formMessage.style.color = "#DC6F6F";
+            formMessage.innerHTML = `
+                <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+                            color: white; 
+                            padding: 1rem; 
+                            border-radius: 8px; 
+                            border-left: 4px solid #991b1b;
+                            margin-top: 1rem;">
+                    <strong>❌ Problème de connexion</strong><br>
+                    Impossible d'envoyer votre message. Vérifiez votre connexion internet et réessayez.
+                </div>
+            `;
         }
 
         setTimeout(() => {
             formMessage.textContent = "";
         }, 6000);
+    });
+    </script>
+    
+    <script>
+    // Correction pour les cartes conseils
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Correction des cartes conseils...');
+        
+        // Fonction pour créer les boutons de navigation visibles
+        function createNavigationButtons() {
+            // Supprimer les anciens boutons s'ils existent
+            const oldNavButtons = document.querySelectorAll('.conseil-navigation');
+            oldNavButtons.forEach(btn => btn.remove());
+            
+            // Créer les nouveaux boutons
+            const navPrev = document.createElement('button');
+            navPrev.className = 'conseil-navigation conseil-nav-prev';
+            navPrev.innerHTML = '❮';
+            navPrev.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 30px;
+                transform: translateY(-50%);
+                z-index: 1002;
+                background: rgba(0, 85, 255, 0.9);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            `;
+            
+            const navNext = document.createElement('button');
+            navNext.className = 'conseil-navigation conseil-nav-next';
+            navNext.innerHTML = '❯';
+            navNext.style.cssText = navPrev.style.cssText.replace('left: 30px', 'right: 30px');
+            
+            const navClose = document.createElement('button');
+            navClose.className = 'conseil-navigation conseil-nav-close';
+            navClose.innerHTML = '✕';
+            navClose.style.cssText = `
+                position: fixed;
+                top: 30px;
+                right: 30px;
+                z-index: 1002;
+                background: rgba(239, 68, 68, 0.9);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            `;
+            
+            document.body.appendChild(navPrev);
+            document.body.appendChild(navNext);
+            document.body.appendChild(navClose);
+            
+            return { navPrev, navNext, navClose };
+        }
+        
+        // Attendre un peu puis initialiser
+        setTimeout(() => {
+            const conseilsCards = document.querySelectorAll('.conseil-card');
+            console.log('Cartes conseils trouvées:', conseilsCards.length);
+            
+            if (conseilsCards.length === 0) return;
+            
+            const { navPrev, navNext, navClose } = createNavigationButtons();
+            let currentIndex = -1;
+            
+            // Overlay
+            let overlay = document.querySelector('.conseil-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'conseil-overlay';
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.7);
+                    z-index: 999;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                `;
+                document.body.appendChild(overlay);
+            }
+            
+            // Fonction pour sélectionner une carte
+            function selectCard(index) {
+                // Fermer toutes les cartes
+                conseilsCards.forEach(c => c.classList.remove('selected'));
+                
+                if (index >= 0 && index < conseilsCards.length) {
+                    conseilsCards[index].classList.add('selected');
+                    currentIndex = index;
+                    
+                    // Afficher l'overlay et les boutons
+                    overlay.style.opacity = '1';
+                    overlay.style.visibility = 'visible';
+                    overlay.style.pointerEvents = 'auto';
+                    
+                    navPrev.style.display = 'flex';
+                    navNext.style.display = 'flex';
+                    navClose.style.display = 'flex';
+                    
+                    // Gérer la visibilité des boutons prev/next
+                    navPrev.style.opacity = index > 0 ? '1' : '0.3';
+                    navNext.style.opacity = index < conseilsCards.length - 1 ? '1' : '0.3';
+                    
+                    document.body.style.overflow = 'hidden';
+                    
+                    console.log('Carte sélectionnée:', index);
+                }
+            }
+            
+            // Fonction pour fermer
+            function closeCards() {
+                conseilsCards.forEach(c => c.classList.remove('selected'));
+                overlay.style.opacity = '0';
+                overlay.style.visibility = 'hidden';
+                overlay.style.pointerEvents = 'none';
+                
+                navPrev.style.display = 'none';
+                navNext.style.display = 'none';
+                navClose.style.display = 'none';
+                
+                document.body.style.overflow = '';
+                currentIndex = -1;
+                
+                console.log('Cartes fermées');
+            }
+            
+            // Event listeners pour les cartes
+            conseilsCards.forEach((card, index) => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => selectCard(index));
+            });
+            
+            // Event listeners pour les boutons
+            navPrev.addEventListener('click', () => {
+                if (currentIndex > 0) selectCard(currentIndex - 1);
+            });
+            
+            navNext.addEventListener('click', () => {
+                if (currentIndex < conseilsCards.length - 1) selectCard(currentIndex + 1);
+            });
+            
+            navClose.addEventListener('click', closeCards);
+            overlay.addEventListener('click', closeCards);
+            
+            // Clavier
+            document.addEventListener('keydown', (e) => {
+                if (currentIndex >= 0) {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeCards();
+                            break;
+                        case 'ArrowLeft':
+                            if (currentIndex > 0) selectCard(currentIndex - 1);
+                            break;
+                        case 'ArrowRight':
+                            if (currentIndex < conseilsCards.length - 1) selectCard(currentIndex + 1);
+                            break;
+                    }
+                }
+            });
+            
+            console.log('Système de cartes conseils initialisé avec succès');
+        }, 1000);
     });
     </script>
 </div>
