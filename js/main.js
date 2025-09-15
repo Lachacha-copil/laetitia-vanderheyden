@@ -190,11 +190,40 @@ if (contactForm) {
         updateScrollProgress();
     });
 
+    // Cookie Banner
+    function initCookieBanner() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+        
+        // Vérifier si l'utilisateur a déjà fait un choix
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+        
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+        }
+        
+        if (declineBtn) {
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieBanner.classList.remove('show');
+            });
+        }
+    }
+
     // Initialize scroll on page load
     makeNavActive();
     headerScroll();
     toggleBackToTop();
     updateScrollProgress();
+    initCookieBanner();
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
