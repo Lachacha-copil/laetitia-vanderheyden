@@ -471,15 +471,16 @@
                 <div class="approach-content">
                     <div class="approach-text reveal-left">
                         <h2>Pourquoi nos clients retrouvent leur sérénité</h2>
-                        <p>Parce que nous ne vous imposons pas nos méthodes, mais nous adaptons les solutions à <span class="highlight">votre réalité</span>. 15 ans d'expérience nous ont appris qu'il n'existe pas de recette miracle, juste des accompagnements intelligents.</p>
+                        <p>Parce que nous ne vous imposons pas de méthodes toutes faites : nous adaptons chaque solution à <span class="highlight">votre réalité</span>.</p>
+                        <p>Avec plus de 15 ans d'expérience, nous savons qu'il n'existe pas de recette miracle, mais des accompagnements intelligents et personnalisés.</p>
                         <div class="highlight-text">
-                            "Votre façon de travailler est unique. Nos solutions aussi."
+                            💬 "Votre façon de travailler est unique. Nos solutions aussi."
                         </div>
                         <ul class="approach-list">
-                            <li><i class="fas fa-check"></i> Compréhension fine de votre contexte spécifique</li>
-                            <li><i class="fas fa-check"></i> Solutions qui s'intègrent à vos habitudes</li>
-                            <li><i class="fas fa-check"></i> Technologie au service de l'humain, pas l'inverse</li>
-                            <li><i class="fas fa-check"></i> Accompagnement respectueux de votre rythme</li>
+                            <li><i class="fas fa-check"></i> Compréhension fine de votre contexte et de vos besoins spécifiques</li>
+                            <li><i class="fas fa-check"></i> Solutions conçues pour s'intégrer naturellement à vos habitudes de travail</li>
+                            <li><i class="fas fa-check"></i> Technologie mise au service de l'humain, jamais l'inverse</li>
+                            <li><i class="fas fa-check"></i> Accompagnement respectueux de votre rythme et de vos priorités</li>
                         </ul>
                     </div>
                     <div class="approach-image reveal-right">
@@ -1025,29 +1026,75 @@
                 console.log('Cartes fermées avec succès');
             }
             
-            // Event listeners pour les cartes - Version robuste
+            // Event listeners pour les cartes - Version ULTRA robuste
             conseilsCards.forEach((card, index) => {
                 card.style.cursor = 'pointer';
+                card.style.userSelect = 'none';
                 
                 // Supprimer tous les anciens event listeners
                 const newCard = card.cloneNode(true);
                 card.parentNode.replaceChild(newCard, card);
                 
-                // Ajouter le nouvel event listener
-                newCard.addEventListener('click', function(e) {
+                // Fonction de sélection directe
+                function handleCardClick(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('Clic sur carte:', index);
-                    selectCard(index);
-                });
+                    e.stopImmediatePropagation();
+                    console.log('Clic direct sur carte:', index);
+                    
+                    // Sélection immédiate
+                    const allCards = document.querySelectorAll('.conseil-card');
+                    allCards.forEach(c => c.classList.remove('selected'));
+                    newCard.classList.add('selected');
+                    currentIndex = index;
+                    
+                    // Affichage immédiat
+                    newCard.style.display = 'block';
+                    newCard.style.visibility = 'visible';
+                    newCard.style.opacity = '1';
+                    newCard.style.position = 'fixed';
+                    newCard.style.top = '50%';
+                    newCard.style.left = '50%';
+                    newCard.style.transform = 'translate(-50%, -50%)';
+                    newCard.style.zIndex = '10000';
+                    newCard.style.background = 'white';
+                    newCard.style.border = '2px solid #0055ff';
+                    newCard.style.borderRadius = '20px';
+                    newCard.style.padding = '2.5rem';
+                    newCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
+                    newCard.style.width = '700px';
+                    newCard.style.maxWidth = '95vw';
+                    newCard.style.height = 'auto';
+                    newCard.style.maxHeight = '70vh';
+                    newCard.style.minHeight = '400px';
+                    newCard.style.overflowY = 'auto';
+                    
+                    // Afficher l'overlay et les boutons
+                    overlay.style.opacity = '1';
+                    overlay.style.visibility = 'visible';
+                    overlay.style.pointerEvents = 'auto';
+                    
+                    navPrev.style.display = 'flex';
+                    navNext.style.display = 'flex';
+                    navClose.style.display = 'flex';
+                    
+                    // Gérer la visibilité des boutons
+                    navPrev.style.opacity = index > 0 ? '1' : '0.3';
+                    navNext.style.opacity = index < conseilsCards.length - 1 ? '1' : '0.3';
+                    
+                    document.body.style.overflow = 'hidden';
+                    
+                    console.log('Carte affichée immédiatement:', index);
+                }
                 
-                // Ajouter aussi un event listener sur mousedown pour plus de fiabilité
-                newCard.addEventListener('mousedown', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    console.log('MouseDown sur carte:', index);
-                    selectCard(index);
-                });
+                // Multiple event listeners pour maximum de fiabilité
+                newCard.addEventListener('click', handleCardClick, true);
+                newCard.addEventListener('mousedown', handleCardClick, true);
+                newCard.addEventListener('touchstart', handleCardClick, true);
+                
+                // Ajouter un attribut pour debug
+                newCard.setAttribute('data-card-index', index);
+                newCard.title = `Carte ${index + 1} - Cliquez pour ouvrir`;
             });
             
             // Event listeners pour les boutons
@@ -1080,6 +1127,15 @@
             });
             
             console.log('Système de cartes conseils initialisé');
+            
+            // Test de debug - vérifier que tout est bien en place
+            setTimeout(() => {
+                const testCards = document.querySelectorAll('.conseil-card');
+                console.log('Cartes détectées après initialisation:', testCards.length);
+                testCards.forEach((card, i) => {
+                    console.log(`Carte ${i}:`, card.title, card.getAttribute('data-card-index'));
+                });
+            }, 2000);
         });
     </script>
     
