@@ -2289,6 +2289,7 @@ body {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(118, 75, 162, 0.02) 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
+    pointer-events: none; /* ne doit jamais bloquer l'interaction du formulaire */
 }
 
 #contact form:hover::before {
