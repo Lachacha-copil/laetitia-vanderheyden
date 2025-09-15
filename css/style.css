@@ -2183,11 +2183,11 @@ body {
 .credential:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary);
+    border-color: var(--gradient-start);
 }
 
 .credential i {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--gradient-end) 100%);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -3448,4 +3448,14 @@ footer::after {
         max-width: 400px;
         min-width: auto;
     }
+}
+
+/* Section CTA pour les créations */
+.cta-section {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
 }
