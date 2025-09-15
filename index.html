@@ -188,8 +188,8 @@
             <div class="container hero-container">
                 <div class="hero-content reveal-left">
                     <h1>Moins de chaos.<br>Plus de clarté.<br><span class="highlight">Plus de sérénité.</span></h1>
-                    <p class="tagline">Vous perdez trop de temps dans l'administratif ? Nous transformons vos contraintes en processus fluides qui vous ressemblent.</p>
-                    <p class="hero-description">Nous sommes votre équipe de copilotes business. Nous aidons les TPE, PME et ASBL vers une organisation administrative performante : diagnostic structuré et solutions sur mesure → mise en place → accompagnement au changement.</p>
+                    <p class="tagline">Vous perdez trop de temps dans l'administratif ? Nous transformons vos contraintes en processus fluides, simples et efficaces, adaptés à votre réalité.</p>
+                    <p class="hero-description">Nous sommes votre équipe de copilotes business. Nous aidons les TPE, PME et ASBL vers une organisation administrative performante grâce à un diagnostic structuré, des solutions sur mesure, une mise en place concrète et un accompagnement au changement.</p>
                     <div class="hero-cta">
                         <a href="https://calendar.app.google/2rYQBhP3iSjpkPHB9" class="btn btn-primary" target="_blank">On en parle ?</a>
                         <a href="#contact" class="btn btn-secondary">Nous contacter</a>
@@ -945,16 +945,27 @@
             document.body.appendChild(navNext);
             document.body.appendChild(navClose);
             
-            // Fonction pour sélectionner une carte
+            // Fonction pour sélectionner une carte - Version robuste
             function selectCard(index) {
                 console.log('Sélection carte:', index);
                 
-                // Fermer toutes les cartes
-                conseilsCards.forEach(c => c.classList.remove('selected'));
+                // Récupérer les cartes à nouveau (au cas où elles ont changé)
+                const currentCards = document.querySelectorAll('.conseil-card');
                 
-                if (index >= 0 && index < conseilsCards.length) {
-                    conseilsCards[index].classList.add('selected');
+                // Fermer toutes les cartes
+                currentCards.forEach(c => c.classList.remove('selected'));
+                
+                if (index >= 0 && index < currentCards.length) {
+                    // Forcer l'ajout de la classe
+                    currentCards[index].classList.add('selected');
                     currentIndex = index;
+                    
+                    // Forcer l'affichage avec un petit délai
+                    setTimeout(() => {
+                        currentCards[index].style.display = 'block';
+                        currentCards[index].style.visibility = 'visible';
+                        currentCards[index].style.opacity = '1';
+                    }, 10);
                     
                     // Afficher l'overlay et les boutons
                     overlay.style.opacity = '1';
@@ -967,9 +978,11 @@
                     
                     // Gérer la visibilité des boutons
                     navPrev.style.opacity = index > 0 ? '1' : '0.3';
-                    navNext.style.opacity = index < conseilsCards.length - 1 ? '1' : '0.3';
+                    navNext.style.opacity = index < currentCards.length - 1 ? '1' : '0.3';
                     
                     document.body.style.overflow = 'hidden';
+                    
+                    console.log('Carte affichée:', index);
                 }
             }
             
@@ -990,13 +1003,27 @@
                 currentIndex = -1;
             }
             
-            // Event listeners pour les cartes
+            // Event listeners pour les cartes - Version robuste
             conseilsCards.forEach((card, index) => {
                 card.style.cursor = 'pointer';
-                card.addEventListener('click', (e) => {
+                
+                // Supprimer tous les anciens event listeners
+                const newCard = card.cloneNode(true);
+                card.parentNode.replaceChild(newCard, card);
+                
+                // Ajouter le nouvel event listener
+                newCard.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     console.log('Clic sur carte:', index);
+                    selectCard(index);
+                });
+                
+                // Ajouter aussi un event listener sur mousedown pour plus de fiabilité
+                newCard.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('MouseDown sur carte:', index);
                     selectCard(index);
                 });
             });
@@ -1041,14 +1068,14 @@
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 500px !important;
-        max-width: 90vw !important;
-        max-height: 70vh !important;
+        width: 700px !important;
+        max-width: 95vw !important;
+        max-height: 85vh !important;
         z-index: 10000 !important;
         background: white !important;
         border: 2px solid #0055ff !important;
         border-radius: 20px !important;
-        padding: 2rem !important;
+        padding: 2.5rem !important;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
         overflow-y: auto !important;
         display: block !important;
@@ -1105,6 +1132,58 @@
     .conseil-nav-close:hover {
         transform: scale(1.1) !important;
         box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5) !important;
+    }
+    
+    /* OPTIMISATION MOBILE */
+    @media (max-width: 768px) {
+        .conseil-card.selected {
+            width: 95vw !important;
+            max-width: 95vw !important;
+            height: 90vh !important;
+            max-height: 90vh !important;
+            top: 5% !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            padding: 1.5rem !important;
+            border-radius: 15px !important;
+        }
+        
+        .conseil-card.selected h3 {
+            font-size: 1.3rem !important;
+            margin-bottom: 0.8rem !important;
+        }
+        
+        .conseil-card.selected p {
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+        }
+        
+        .conseil-card.selected ul {
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+        }
+        
+        .conseil-card.selected .btn {
+            padding: 0.8rem 1.2rem !important;
+            font-size: 0.9rem !important;
+            width: 100% !important;
+            text-align: center !important;
+        }
+        
+        /* Boutons de navigation plus petits sur mobile */
+        .conseil-navigation {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1.2rem !important;
+        }
+        
+        .conseil-nav-close {
+            width: 35px !important;
+            height: 35px !important;
+            font-size: 1rem !important;
+            top: 15px !important;
+            right: 15px !important;
+        }
     }
     </style>
     
