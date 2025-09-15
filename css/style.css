@@ -1883,9 +1883,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 2rem;
+    flex-wrap: nowrap;
     padding: 1rem 0;
+    overflow-x: auto;
 }
 
 .partner-logo {
