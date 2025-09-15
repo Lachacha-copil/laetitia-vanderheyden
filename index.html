@@ -655,7 +655,7 @@
                         </div>
                     </div>
                     <div class="contact-form">
-    <form id="contactForm" action="https://formspree.io/f/mjkwqowb" method="POST">
+    <form id="contactForm" method="POST">
         <div class="form-group">
             <label for="name">Nom complet *</label>
             <input type="text" id="name" name="name" required>
@@ -706,6 +706,16 @@
         <button type="submit" class="btn btn-primary btn-full">Demander un premier échange</button>
         <p id="formMessage" style="margin-top: 1rem; color: #7DA87B; font-weight: 500; min-height: 20px;"></p>
     </form>
+    
+    <script>
+    // Script d'urgence pour bloquer TOUTE soumission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Formulaire intercepté !');
+        return false;
+    });
+    </script>
 </div>
                 </div>
             </div>
