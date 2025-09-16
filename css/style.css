@@ -2194,8 +2194,18 @@ body {
 .about-intro {
     font-size: 1.2rem;
     text-align: left; /* Plus centré */
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.6;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text);
+    font-weight: 400;
+    opacity: 0.9;
+    text-align: left;
 }
 
 .tech-expertise {
@@ -3220,6 +3230,11 @@ footer::after {
         margin-bottom: 1.5rem;
     }
     
+    .about-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
     .tech-expertise {
         margin: 20px 0;
         padding: 20px;
@@ -3264,6 +3279,10 @@ footer::after {
     
     .about-intro {
         font-size: 1rem;
+    }
+    
+    .about-description {
+        font-size: 0.95rem;
     }
     
     .tech-expertise {
