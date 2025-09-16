@@ -101,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Contact Form - Version robuste
 function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
     if (!contactForm) {
         console.error('Formulaire de contact non trouvé!');
@@ -186,7 +186,7 @@ function initContactForm() {
         if (progressBar) {
             progressBar.style.width = scrollPercent + '%';
         }
-    }
+}
 
     // Initialize scroll events
     window.addEventListener('scroll', function() {
