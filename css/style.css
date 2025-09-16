@@ -1912,10 +1912,10 @@ body {
 
 .training-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem; /* Espacement entre le texte et l'image/vidéo */
-    align-items: center; /* Centrer verticalement */
-    padding: 2rem 0; /* Espacement interne */
+    grid-template-columns: 1.2fr 1fr; /* Plus d'espace pour l'image */
+    gap: 4rem; /* Espacement plus généreux */
+    align-items: center;
+    padding: 2rem 0;
 }
 
 /* Styles pour le bloc de texte à l'intérieur de training-content */
@@ -2012,12 +2012,19 @@ body {
 
 .training-media img,
 .training-media video {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* Adaptez à votre border-radius habituel */
-    /* J'ai ajusté ici pour utiliser une valeur de shadow concrète si var(--shadow) n'est pas défini */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
-    /* Si vous avez une variable --shadow et qu'elle est définie, utilisez : box-shadow: var(--shadow); */
+    width: 100%;
+    max-width: 500px; /* Taille maximale plus grande */
+    height: 400px; /* Hauteur fixe pour un meilleur ratio */
+    object-fit: cover; /* Optimise l'affichage de l'image */
+    border-radius: 15px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.training-media img:hover,
+.training-media video:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
 }
 
 .training-media {
@@ -3635,6 +3642,45 @@ footer::after {
     border: 1px solid #e2e8f0;
 }
 
+/* Optimisations images pour le web */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Images avec effet hover subtil */
+img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Images hero et importantes */
+.hero-image img,
+.training-media img {
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image img:hover,
+.training-media img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Images de profil */
+.about-image img {
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.about-image img:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
 /* Mobile responsive pour les cartes conseils */
 @media (max-width: 768px) {
     .conseils-grid {
@@ -3708,5 +3754,23 @@ footer::after {
     /* Overlay sur mobile */
     .conseil-overlay {
         background: rgba(0, 0, 0, 0.8) !important;
+    }
+    
+    /* Optimisations images mobile */
+    .training-media img {
+        max-width: 100%;
+        height: 300px; /* Hauteur réduite sur mobile */
+        object-fit: cover;
+    }
+    
+    .hero-image img {
+        height: 250px; /* Hauteur adaptée pour mobile */
+        object-fit: cover;
+    }
+    
+    .about-image img {
+        width: 200px;
+        height: 250px;
+        object-fit: cover;
     }
 }
