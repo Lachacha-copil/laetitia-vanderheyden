@@ -3,59 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité | Laetitia Vanderheyden</title>
-    <meta name="description" content="Politique de confidentialité pour les services de Copilote Business par Laetitia Vanderheyden.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <style>
-        .privacy-content {
-            font-size: 0.75rem;
-            line-height: 1.5;
-        }
-        .privacy-content h1 {
-            font-size: 1.7rem;
-        }
-        .privacy-content h2 {
-            font-size: 1.1rem;
-        }
-        .privacy-content p {
-            font-size: 0.75rem;
-        }
-        .privacy-content ul {
-            font-size: 0.75rem !important;
-            padding-left: 1.5rem !important;
-            margin-left: 0.8rem !important;
-            list-style-position: outside !important;
-        }
-        .privacy-content li {
-            font-size: 0.75rem !important;
-            margin-bottom: 0.3rem !important;
-            padding-left: 0.2rem !important;
-        }
-    </style>
+    <title>Politique de Confidentialité | Laetitia Vanderheyden - Consultante administrative 2.0</title>
+    <meta name="description" content="Politique de confidentialité pour les services de Laetitia Vanderheyden, consultante administrative indépendante.">
+    
+    <!-- Preload -->
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    
+    <style>
+        .privacy-section {
+            background: var(--background);
+        }
+        
+        .privacy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .privacy-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .privacy-block:last-child {
+            border-bottom: none;
+        }
+        
+        .privacy-block h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+        
+        .privacy-block p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-block ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .privacy-block li {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+        
+        .privacy-block strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
     <header id="header">
         <nav class="container">
             <div class="logo">
-                <a href="index.html"><img src="public/logo-laetitia-vanderheyden-noir.png" alt="Laetitia Vanderheyden" height="250px"></a>
+                <a href="index.html">
+                    <img src="public/logo-laetitia-vanderheyden-noir.png" alt="Laetitia Vanderheyden - Consultante administrative indépendante Liège Wallonie" height="50">
+                    <div class="logo-text">
+                        <span>Laetitia Vanderheyden</span>
+                        <span>Consultante administrative indépendante • Gestion administrative • Optimisation • Conseils</span>
+                    </div>
+                </a>
             </div>
-            <div class="menu-toggle" id="mobile-menu">
+            <button class="menu-toggle" id="mobile-menu" aria-label="Menu mobile">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html#services" class="nav-link">Services</a></li>
-                <li><a href="index.html#approach" class="nav-link">Approche</a></li>
-                <li><a href="index.html#projects" class="nav-link">Projets</a></li>
-                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="ateliers-ia.html" class="nav-link">Ateliers</a></li>
+                <li><a href="apropos.html" class="nav-link">À propos</a></li>
                 <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
-                <li><a href="index.html#contact" class="nav-link contact-btn">Contact</a></li>
+                <li><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -64,28 +112,28 @@
         <div class="container">
             <div class="section-header">
                 <h1>Politique de Confidentialité</h1>
-                <p>Dernière mise à jour: 1er janvier 2025</p>
+                <p class="section-subtitle">Dernière mise à jour : 09 novembre 2025</p>
             </div>
             
             <div class="privacy-content">
                 <div class="privacy-block">
                     <h2>1. Introduction</h2>
-                    <p>Bienvenue sur le site web de Laetitia Vanderheyden, Copilote Business. Je m'engage à protéger la vie privée et les informations personnelles des visiteurs et clients de mon site web. Cette politique de confidentialité explique comment je collecte, utilise, divulgue et protège vos informations personnelles.</p>
+                    <p>Bienvenue sur le site web de Laetitia Vanderheyden, consultante administrative indépendante. Je m'engage à protéger la vie privée et les informations personnelles des visiteurs et clients de mon site web. Cette politique de confidentialité explique comment je collecte, utilise, divulgue et protège vos informations personnelles.</p>
                 </div>
                 
                 <div class="privacy-block">
                     <h2>2. Informations collectées</h2>
-                    <p>Je peux collecter les types d'informations suivants lorsque vous visitez mon site web ou utilisez mes services:</p>
+                    <p>Je peux collecter les types d'informations suivants lorsque vous visitez mon site web ou utilisez mes services :</p>
                     <ul>
-                        <li><strong>Informations personnelles</strong>: nom, adresse e-mail, numéro de téléphone et autres informations que vous me fournissez volontairement via le formulaire de contact ou par correspondance.</li>
-                        <li><strong>Informations sur l'entreprise</strong>: nom de l'entreprise, secteur d'activité, taille de l'entreprise.</li>
-                        <li><strong>Informations techniques</strong>: adresse IP, type de navigateur, fournisseur d'accès Internet, pages de référence/sortie, système d'exploitation, horodatage et données de parcours.</li>
+                        <li><strong>Informations personnelles</strong> : nom, adresse e-mail, numéro de téléphone et autres informations que vous me fournissez volontairement via le formulaire de contact ou par correspondance.</li>
+                        <li><strong>Informations sur l'entreprise</strong> : nom de l'entreprise, secteur d'activité, taille de l'entreprise.</li>
+                        <li><strong>Informations techniques</strong> : adresse IP, type de navigateur, fournisseur d'accès Internet, pages de référence/sortie, système d'exploitation, horodatage et données de parcours.</li>
                     </ul>
                 </div>
                 
                 <div class="privacy-block">
                     <h2>3. Utilisation des informations</h2>
-                    <p>J'utilise les informations collectées pour:</p>
+                    <p>J'utilise les informations collectées pour :</p>
                     <ul>
                         <li>Fournir, exploiter et maintenir mon site web</li>
                         <li>Répondre à vos demandes et vous fournir les services demandés</li>
@@ -98,11 +146,11 @@
                 
                 <div class="privacy-block">
                     <h2>4. Partage des informations</h2>
-                    <p>Je ne vends, n'échange ni ne loue vos informations personnelles à des tiers. Je peux partager vos informations dans les situations suivantes:</p>
+                    <p>Je ne vends, n'échange ni ne loue vos informations personnelles à des tiers. Je peux partager vos informations dans les situations suivantes :</p>
                     <ul>
                         <li>Avec votre consentement</li>
-                        <li>Pour nous conformer aux lois et réglementations applicables</li>
-                        <li>Avec des prestataires de services tiers qui nous aident à exploiter mon site web et à fournir mes services</li>
+                        <li>Pour me conformer aux lois et réglementations applicables</li>
+                        <li>Avec des prestataires de services tiers qui m'aident à exploiter mon site web et à fournir mes services (notamment Formspree pour le traitement des formulaires de contact)</li>
                     </ul>
                 </div>
                 
@@ -123,7 +171,7 @@
                 
                 <div class="privacy-block">
                     <h2>8. Vos droits</h2>
-                    <p>Selon votre lieu de résidence, vous pouvez avoir certains droits concernant vos informations personnelles, tels que:</p>
+                    <p>Selon votre lieu de résidence, vous pouvez avoir certains droits concernant vos informations personnelles, tels que :</p>
                     <ul>
                         <li>Le droit d'accéder à vos informations personnelles</li>
                         <li>Le droit de rectifier ou de mettre à jour vos informations personnelles</li>
@@ -131,111 +179,115 @@
                         <li>Le droit de vous opposer au traitement de vos informations personnelles</li>
                         <li>Le droit à la portabilité des données</li>
                     </ul>
-                    <p>Pour exercer ces droits, veuillez nous contacter via les coordonnées fournies ci-dessous.</p>
+                    <p>Pour exercer ces droits, veuillez me contacter via les coordonnées fournies ci-dessous.</p>
                 </div>
                 
                 <div class="privacy-block">
                     <h2>9. Modifications de cette politique</h2>
-                    <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications entreront en vigueur dès leur publication sur cette page. Nous vous encourageons à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
+                    <p>Je me réserve le droit de modifier cette politique de confidentialité à tout moment. Les modifications entreront en vigueur dès leur publication sur cette page. Je vous encourage à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
                 </div>
                 
                 <div class="privacy-block">
                     <h2>10. Contact</h2>
-                    <p>Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à l'adresse suivante: info@adminetech.be</p>
+                    <p>Si vous avez des questions concernant cette politique de confidentialité, veuillez me contacter à l'adresse suivante : <a href="mailto:info@adminetech.be">info@adminetech.be</a> ou par téléphone au <a href="tel:+32498788354">+32 498 78 83 54</a>.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/logo-laetitia-vanderheyden-blanc.png" alt="Logo Laetitia Vanderheyden">
+                <div class="footer-left">
+                    <img src="public/logo-laetitia-vanderheyden-blanc.png" alt="Laetitia Vanderheyden - Consultante administrative indépendante Liège" class="footer-logo">
+                    <p>Laetitia Vanderheyden</p>
+                    <p>Consultante Administrative Indépendante</p>
+                    <p>Adminetech<sup style="font-size: 0.7em; vertical-align: super;">®</sup> SRL • BE1012.752.452</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.85;"><a href="https://www.chronobizz.be" target="_blank" rel="noopener noreferrer" style="color: var(--background); text-decoration: underline;">Chronobizz</a> - Logiciel de suivi du temps et de facturation</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;"><a href="#" id="tarifs-link" style="color: var(--background); text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); cursor: pointer;">Tarifs détaillés</a></p>
                 </div>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#approach">Approche</a></li>
-                        <li><a href="index.html#about">À propos</a></li>
+                <div class="footer-center">
+                    <h4>Navigation</h4>
+                    <ul class="footer-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="ateliers-ia.html">Ateliers</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
                         <li><a href="index.html#faq">FAQ</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                         <li><a href="privacy.html">Politique de confidentialité</a></li>
                     </ul>
                 </div>
+                <div class="footer-right">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Rue Brouck au Tilleul 50, 4690 Glons, Belgique</p>
+                    <p><a href="mailto:info@adminetech.be"><i class="fas fa-envelope"></i> info@adminetech.be</a></p>
+                    <p><a href="tel:+32498788354"><i class="fas fa-phone"></i> +32 498 78 83 54</a></p>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Laetitia Vanderheyden. Tous droits réservés.</p>
-                <p>
-                  Adminetech SRL • BE1012.752.452<br>
-                  Rue Brouck au Tilleul 50, 4690 Glons, Belgique<br>
-                  <a href="mailto:info@adminetech.be">info@adminetech.be</a> • 
-                  <a href="tel:+32498788354">+32 498 78 83 54</a>
-                </p>
-                <p class="made-by">Site créé avec <span class="heart">❤️</span> par Laetitia</p>
+                <p>Copyright © 2025 Laetitia Vanderheyden. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">
+    <!-- MODAL TARIFS -->
+    <div id="tarifs-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Recevoir mes tarifs détaillés</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Remplissez ce formulaire pour recevoir ma grille tarifaire complète par email.</p>
+            <form id="tarifsForm" action="https://formspree.io/f/mjkwqowb" method="POST">
+                <input type="hidden" name="_subject" value="Demande de tarifs - Laetitia Vanderheyden">
+                <input type="hidden" name="_next" value="merci-tarifs.html">
+                
+                <div class="form-group">
+                    <label for="tarifs-email">Email *</label>
+                    <input type="email" id="tarifs-email" name="email" required placeholder="votre@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tarifs-companyType">Type d'entreprise</label>
+                    <select id="tarifs-companyType" name="companyType">
+                        <option value="">Sélectionnez...</option>
+                        <option value="TPE">TPE (Très Petite Entreprise)</option>
+                        <option value="PME">PME (Petite et Moyenne Entreprise)</option>
+                        <option value="ASBL">ASBL</option>
+                        <option value="Indépendant">Indépendant</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tarifs-name">Nom (optionnel)</label>
+                    <input type="text" id="tarifs-name" name="name" placeholder="Votre nom">
+                </div>
+                
+                <div class="checkbox-group" style="margin: 1.5rem 0;">
+                    <input type="checkbox" id="tarifs-rgpd" name="rgpd" required>
+                    <label for="tarifs-rgpd">J'accepte que mes données soient utilisées pour me contacter concernant ma demande de tarifs. <a href="privacy.html" target="_blank" style="color: var(--accent); text-decoration: underline;">Politique de confidentialité</a> *</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Recevoir mes tarifs</button>
+                <p class="form-message" style="margin-top: 1.5rem;"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bouton Retour en haut -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Retour en haut">
         <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/32498788354?text=Bonjour%20Laetitia,%20j'aimerais%20échanger%20sur%20mes%20besoins%20administratifs" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactez-moi sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Menu Toggle
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (mobileMenu) {
-                mobileMenu.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
-            }
-
-            // Header Scroll Effect
-            const header = document.getElementById('header');
-            
-            function headerScroll() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
-
-            // Back to Top Button
-            const backToTopBtn = document.getElementById('backToTop');
-            
-            function toggleBackToTop() {
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
-                }
-            }
-
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-
-            // Initialize scroll events
-            window.addEventListener('scroll', function() {
-                headerScroll();
-                toggleBackToTop();
-            });
-
-            // Initialize scroll on page load
-            headerScroll();
-            toggleBackToTop();
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

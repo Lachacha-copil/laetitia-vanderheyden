@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bannière LinkedIn - Laetitia Vanderheyden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', 'Georgia', serif;
+            background: #f5f5f5;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 100%;
+        }
+
+        .banner {
+            width: 1584px;
+            height: 396px;
+            background: linear-gradient(135deg, #0A4D68 0%, #088395 50%, #0A4D68 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 8px 32px rgba(10, 77, 104, 0.3);
+        }
+
+        /* Zone gauche réservée pour photo de profil LinkedIn - encore plus grande */
+        .left-zone {
+            width: 600px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Image de fond intégrée à gauche - encore plus visible */
+        .left-image {
+            width: 120%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.55;
+            filter: blur(0.5px);
+            transform: scale(1.05);
+        }
+
+        /* Overlay bleu pour intégration parfaite - encore moins opaque */
+        .left-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 77, 104, 0.5) 0%, rgba(10, 77, 104, 0.3) 60%, transparent 100%);
+        }
+
+        /* Masque diagonal avec flou pour transition douce */
+        .diagonal-mask {
+            position: absolute;
+            top: 0;
+            right: -80px;
+            width: 180px;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(10, 77, 104, 0.3) 20%, rgba(10, 77, 104, 0.6) 50%, rgba(10, 77, 104, 0.9) 80%, rgba(10, 77, 104, 1) 100%);
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+            filter: blur(20px);
+            z-index: 1;
+        }
+
+        /* Zone de contenu principale (droite) - plus à droite */
+        .content-zone {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 4rem 2rem 6rem;
+            z-index: 2;
+            margin-left: 1rem;
+        }
+
+        /* Motifs décoratifs subtils */
+        .banner::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(8, 131, 149, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Logo en petit en haut à droite */
+        .logo {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 3;
+            height: 45px;
+            width: auto;
+            opacity: 0.9;
+            filter: brightness(0) invert(1);
+        }
+
+        .title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .title-line2 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+            margin-left: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+        }
+
+        .tagline-line2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+            margin-left: 1rem;
+        }
+
+        .target {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .details {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            font-size: 1.35rem;
+            color: white;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .detail-item i {
+            font-size: 2rem;
+            color: #F28B50;
+            filter: drop-shadow(0 2px 6px rgba(242, 139, 80, 0.4));
+        }
+
+        .detail-item span {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Instructions */
+        .instructions {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #F7FAFC;
+            border-radius: 8px;
+            border-left: 4px solid #088395;
+        }
+
+        .instructions h3 {
+            color: #0A4D68;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .instructions ol {
+            margin-left: 1.5rem;
+            color: #4A5568;
+            line-height: 1.8;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        .instructions code {
+            background: #E2E8F0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .note {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(242, 139, 80, 0.1);
+            border-left: 3px solid #F28B50;
+            border-radius: 4px;
+            color: #4A5568;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .instructions {
+                display: none;
+            }
+        }
+
+        /* Responsive pour prévisualisation */
+        @media (max-width: 1700px) {
+            .banner {
+                transform: scale(0.8);
+                transform-origin: top left;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .banner {
+                transform: scale(0.6);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <!-- Zone gauche avec image intégrée -->
+            <div class="left-zone">
+                <img src="public/Gemini_Generated_Image_page_services_Option1_exécutionOptimisation.png" alt="" class="left-image">
+                <div class="left-overlay"></div>
+                <div class="diagonal-mask"></div>
+            </div>
+
+            <!-- Logo en petit en haut à droite -->
+            <img src="public/logo-laetitia-vanderheyden-blanc.png" alt="Laetitia Vanderheyden" class="logo">
+
+            <!-- Zone de contenu principale -->
+            <div class="content-zone">
+                <p class="title">Je ne vends pas du rêve,</p>
+                <p class="title-line2">j'organise la réalité</p>
+                <p class="tagline">Votre bras droit pour une gestion</p>
+                <p class="tagline-line2">et organisation administrative sans faille</p>
+                <p class="target">TPE • PME • Indépendants</p>
+                
+                <div class="details">
+                    <div class="detail-item">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Gestion administrative</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Organisation et optimisation</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Conseils</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Ateliers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instructions pour capturer votre bannière LinkedIn</h3>
+            <ol>
+                <li><strong>Zone photo de profil :</strong> La zone gauche (280px) est réservée pour votre photo de profil LinkedIn qui apparaîtra par-dessus. L'image de fond s'intègre harmonieusement avec le bleu.</li>
+                <li><strong>Faire une capture d'écran :</strong> Utilisez l'outil de capture de votre système (Windows + Shift + S) ou un outil comme Snipping Tool</li>
+                <li><strong>Dimensions LinkedIn :</strong> La bannière fait exactement 1584x396 pixels (format recommandé par LinkedIn)</li>
+                <li><strong>Pour imprimer/PDF :</strong> Appuyez sur <code>Ctrl + P</code> et sélectionnez "Enregistrer en PDF" (les instructions disparaîtront automatiquement)</li>
+                <li><strong>Alternative :</strong> Faites un clic droit sur la bannière → "Enregistrer l'image sous..." (si votre navigateur le permet)</li>
+                <li><strong>Upload LinkedIn :</strong> Allez sur votre profil LinkedIn → Modifier la bannière → Télécharger votre image</li>
+            </ol>
+            <div class="note">
+                <strong>💡 Note importante :</strong> Si vous souhaitez changer l'image de fond à gauche, remplacez simplement le chemin dans le code : <code>src="public/businesswoman-sitting-on-her-workplace.jpg"</code> par une autre image de votre dossier public. L'image s'intégrera automatiquement grâce à l'overlay bleu.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
