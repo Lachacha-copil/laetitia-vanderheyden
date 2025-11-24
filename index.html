@@ -756,24 +756,6 @@
         });
 
 
-        // Menu mobile
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
-        
-        if (mobileMenu) {
-            mobileMenu.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-            
-            // Fermer le menu au clic sur un lien
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                });
-            });
-        }
     </script>
 </body>
 </html>

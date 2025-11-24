@@ -7,9 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     
     if (mobileMenu && navMenu) {
-        mobileMenu.addEventListener('click', function() {
+        // Empêcher la propagation pour éviter les conflits
+        mobileMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Menu toggle cliqué');
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
+            console.log('Menu active:', navMenu.classList.contains('active'));
         });
         
         // Fermer le menu au clic sur un lien
@@ -17,8 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 mobileMenu.classList.remove('active');
-                });
+            });
         });
+        
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', function(e) {
+            if (navMenu.classList.contains('active') && 
+                !navMenu.contains(e.target) && 
+                !mobileMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    } else {
+        console.warn('Menu mobile non trouvé:', { mobileMenu, navMenu });
     }
 
     // Définir l'état actif basé sur l'URL de la page courante

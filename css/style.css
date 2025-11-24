@@ -411,6 +411,8 @@ a:hover {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1002;
+    position: relative;
 }
 
 .menu-toggle .bar {
@@ -429,7 +431,7 @@ a:hover {
         position: fixed;
         top: 70px;
         left: -100%;
-    width: 100%;
+        width: 100%;
         height: calc(100vh - 70px);
         background: var(--background);
         flex-direction: column;
@@ -438,6 +440,8 @@ a:hover {
         gap: 1.5rem;
         transition: left 0.3s ease;
         box-shadow: var(--shadow-lg);
+        z-index: 1001;
+        overflow-y: auto;
     }
     
     .nav-menu.active {
