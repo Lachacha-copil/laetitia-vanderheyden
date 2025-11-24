@@ -643,26 +643,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (formMessage) {
                         if (form.id === 'tarifsForm') {
                             formMessage.innerHTML = `
-                                <div style="background: linear-gradient(135deg, #0A4D68 0%, #088395 100%); 
-                                            color: white; 
-                                            padding: 1.25rem 1.5rem; 
-                                            border-radius: 12px; 
-                                            box-shadow: 0 4px 20px rgba(10, 77, 104, 0.25);
-                                            border: 1px solid rgba(255, 255, 255, 0.1);
-                                            margin-top: 1rem;">
-                                    <div style="display: flex; align-items: center; gap: 1rem;">
-                                        <div style="background: rgba(255,255,255,0.15); 
-                                                   border-radius: 50%; 
-                                                   width: 40px; 
-                                                   height: 40px; 
-                                                   display: flex; 
-                                                   align-items: center; 
-                                                   justify-content: center;
+                                <div style="background: white; 
+                                            color: var(--text); 
+                                            padding: 1rem 1.25rem; 
+                                            border-radius: 8px; 
+                                            border: 1px solid #10b981;
+                                            border-left: 4px solid #10b981;
+                                            margin-top: 1rem;
+                                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                        <div style="color: #10b981; 
                                                    font-size: 1.25rem;
-                                                   flex-shrink: 0;">✓</div>
+                                                   flex-shrink: 0;">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
                                         <div style="flex: 1;">
-                                            <h4 style="margin: 0 0 0.25rem 0; font-size: 1.1rem; font-weight: 600; font-family: 'Lora', serif;">Demande envoyée avec succès</h4>
-                                            <p style="margin: 0; opacity: 0.95; font-size: 0.9rem; line-height: 1.4;">Vous pouvez télécharger ma grille tarifaire complète ci-dessous.</p>
+                                            <p style="margin: 0; font-size: 0.95rem; color: var(--text); line-height: 1.4;">Demande envoyée avec succès. Vous allez être redirigé vers la page de téléchargement.</p>
                                         </div>
                                     </div>
                                 </div>

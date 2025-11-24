@@ -278,28 +278,22 @@
 
                                 if (response.ok) {
                                     formMessage.innerHTML = `
-                                        <div style="background: linear-gradient(135deg, #0A4D68 0%, #088395 100%); 
-                                                    color: white; 
-                                                    padding: 2rem 2.5rem; 
-                                                    border-radius: 16px; 
-                                                    box-shadow: 0 8px 32px rgba(10, 77, 104, 0.4);
-                                                    border: 2px solid rgba(255, 255, 255, 0.2);
-                                                    margin-top: 1.5rem;
-                                                    animation: slideIn 0.3s ease-out;">
-                                            <div style="display: flex; align-items: center; gap: 1.5rem;">
-                                                <div style="background: rgba(255,255,255,0.25); 
-                                                           border-radius: 50%; 
-                                                           width: 60px; 
-                                                           height: 60px; 
-                                                           display: flex; 
-                                                           align-items: center; 
-                                                           justify-content: center;
-                                                           font-size: 2rem;
-                                                           flex-shrink: 0;
-                                                           box-shadow: 0 4px 12px rgba(0,0,0,0.2);">✓</div>
+                                        <div style="background: white; 
+                                                    color: var(--text); 
+                                                    padding: 1rem 1.25rem; 
+                                                    border-radius: 8px; 
+                                                    border: 1px solid #10b981;
+                                                    border-left: 4px solid #10b981;
+                                                    margin-top: 1rem;
+                                                    box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                                <div style="color: #10b981; 
+                                                           font-size: 1.25rem;
+                                                           flex-shrink: 0;">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </div>
                                                 <div style="flex: 1;">
-                                                    <h4 style="margin: 0 0 0.5rem 0; font-size: 1.5rem; font-weight: 700; font-family: 'Lora', serif; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">Message envoyé avec succès</h4>
-                                                    <p style="margin: 0; opacity: 1; font-size: 1.1rem; line-height: 1.5; font-weight: 500;">Merci ${name} ! Je vous répondrai sous 24 heures ouvrées.</p>
+                                                    <p style="margin: 0; font-size: 0.95rem; color: var(--text); line-height: 1.4;">Message envoyé avec succès. Je vous répondrai sous 24 heures ouvrées.</p>
                                                 </div>
                                             </div>
                                         </div>
