@@ -62,9 +62,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     
@@ -471,6 +468,61 @@
     </a>
 
     <script src="js/main.js"></script>
+    
+    <!-- Chargement lazy de reCAPTCHA (seulement quand le formulaire devient visible) -->
+    <script>
+        (function() {
+            var recaptchaLoaded = false;
+            
+            function loadRecaptcha() {
+                if (recaptchaLoaded) return;
+                recaptchaLoaded = true;
+                
+                var script = document.createElement('script');
+                script.src = 'https://www.google.com/recaptcha/api.js';
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+            }
+            
+            // Détecter quand les formulaires avec reCAPTCHA deviennent visibles
+            var recaptchaContainers = document.querySelectorAll('.g-recaptcha');
+            
+            if (recaptchaContainers.length > 0 && 'IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            loadRecaptcha();
+                            observer.disconnect();
+                        }
+                    });
+                }, {
+                    rootMargin: '100px' // Charger 100px avant que le formulaire soit visible
+                });
+                
+                recaptchaContainers.forEach(function(container) {
+                    observer.observe(container);
+                });
+            } else if (recaptchaContainers.length > 0) {
+                // Fallback pour navigateurs sans IntersectionObserver : charger au premier scroll
+                var scrolled = false;
+                window.addEventListener('scroll', function() {
+                    if (!scrolled) {
+                        scrolled = true;
+                        setTimeout(loadRecaptcha, 500);
+                    }
+                }, { once: true });
+                
+                // Ou charger au premier clic dans un formulaire
+                document.addEventListener('click', function(e) {
+                    var form = e.target.closest('form');
+                    if (form && form.querySelector('.g-recaptcha')) {
+                        loadRecaptcha();
+                    }
+                }, { once: true });
+            }
+        })();
+    </script>
 </body>
 </html>
 
