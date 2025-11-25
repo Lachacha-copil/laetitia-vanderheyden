@@ -80,12 +80,60 @@
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Fonts (display=block : attend le chargement de la police pour éviter le flash) -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" rel="stylesheet">
+    <!-- Préchargement non-bloquant des CSS externes -->
+    <!-- Google Fonts : chargement non-bloquant avec font-display: block pour éviter le basculement -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" rel="stylesheet"></noscript>
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Polyfill pour preload as="style" (navigateurs anciens) -->
+    <script>
+    /*! loadCSS rel=preload polyfill */
+    (function(w) {
+        "use strict";
+        if (!w.loadCSS) {
+            w.loadCSS = function() {};
+        }
+        var rp = w.relPreload = {};
+        rp.support = function() {
+            try {
+                return w.document.createElement("link").relList.supports("preload");
+            } catch (e) {
+                return false;
+            }
+        };
+        rp.poly = function() {
+            var files = w.document.getElementsByTagName("link");
+            for (var i = 0; i < files.length; i++) {
+                var link = files[i];
+                if (link.rel === "preload" && link.getAttribute("as") === "style") {
+                    var style = w.document.createElement("link");
+                    style.rel = "stylesheet";
+                    style.href = link.href;
+                    link.parentNode.insertBefore(style, link);
+                    link.remove();
+                }
+            }
+        };
+        if (!rp.support()) {
+            rp.poly();
+            var run = w.setInterval(rp.poly, 300);
+            if (w.addEventListener) {
+                w.addEventListener("load", function() {
+                    w.clearInterval(run);
+                });
+            } else if (w.attachEvent) {
+                w.attachEvent("onload", function() {
+                    w.clearInterval(run);
+                });
+            }
+        }
+    }(typeof global !== "undefined" ? global : this));
+    </script>
     
     <!-- reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
