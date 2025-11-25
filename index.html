@@ -87,52 +87,14 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" rel="stylesheet"></noscript>
     
+    <!-- Font Awesome : chargement non-bloquant -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
-    <!-- Polyfill pour preload as="style" (navigateurs anciens) -->
+    <!-- Polyfill minimal pour preload as="style" (navigateurs anciens) - version optimisée -->
     <script>
-    /*! loadCSS rel=preload polyfill */
-    (function(w) {
-        "use strict";
-        if (!w.loadCSS) {
-            w.loadCSS = function() {};
-        }
-        var rp = w.relPreload = {};
-        rp.support = function() {
-            try {
-                return w.document.createElement("link").relList.supports("preload");
-            } catch (e) {
-                return false;
-            }
-        };
-        rp.poly = function() {
-            var files = w.document.getElementsByTagName("link");
-            for (var i = 0; i < files.length; i++) {
-                var link = files[i];
-                if (link.rel === "preload" && link.getAttribute("as") === "style") {
-                    var style = w.document.createElement("link");
-                    style.rel = "stylesheet";
-                    style.href = link.href;
-                    link.parentNode.insertBefore(style, link);
-                    link.remove();
-                }
-            }
-        };
-        if (!rp.support()) {
-            rp.poly();
-            var run = w.setInterval(rp.poly, 300);
-            if (w.addEventListener) {
-                w.addEventListener("load", function() {
-                    w.clearInterval(run);
-                });
-            } else if (w.attachEvent) {
-                w.attachEvent("onload", function() {
-                    w.clearInterval(run);
-                });
-            }
-        }
-    }(typeof global !== "undefined" ? global : this));
+    !function(e){"use strict";var t=function(t,n,o){var i,r=e.document,a=r.createElement("link");if(n)i=n;else{var l=(r.body||r.getElementsByTagName("head")[0]).childNodes;i=l[l.length-1]}var d=r.styleSheets;a.rel="stylesheet",a.href=t,a.media="only x",function e(t){if(r.body)return t();setTimeout(function(){e(t)})}(function(){i.parentNode.insertBefore(a,n?i:i.nextSibling)});var f=function(e){for(var t=a.href,n=d.length;n--;)if(d[n].href===t)return e();setTimeout(function(){f(e)})};return a.addEventListener&&a.addEventListener("load",function(){this.media=o||"all"}),a.onloadcssdefined=f,f(function(){a.media!==o&&(a.media=o||"all")}),a};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+    !function(e){if(e.loadCSS){var t=loadCSS;function n(e){var t=e.href,n=e.media;t&&n&&"all"!==n&&"print"!==n&&(e.media="all",e.onload=function(){e.media=n})}var o=e.document.getElementsByTagName("link");for(var i=0;i<o.length;i++){var r=o[i];"preload"===r.rel&&"style"===r.getAttribute("as")&&(t(r.href,r,r.getAttribute("media")),r.rel=null)}}}(this);
     </script>
     
     <!-- reCAPTCHA -->
