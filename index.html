@@ -129,7 +129,6 @@
                 <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="ateliers-ia.html" class="nav-link">Ateliers</a></li>
                 <li><a href="apropos.html" class="nav-link">À propos</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
             </ul>
         </nav>
@@ -297,62 +296,6 @@
         </div>
     </div>
 </section>
-
-        <!-- 6. SECTION FAQ -->
-        <section id="faq" class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Questions fréquentes</h2>
-                </div>
-        <div class="faq-container">
-                    <div class="faq-item">
-                <div class="faq-question">
-                            <h3>Quelle est la différence entre votre approche et celle d'une assistante administrative classique ?</h3>
-                            <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                            <p>Une assistante administrative se concentre sur l'exécution des tâches que vous lui confiez. Mon accompagnement ajoute une dimension d'analyse et d'optimisation : pendant que je gère vos tâches administratives, j'identifie également les opportunités d'amélioration de vos processus.</p>
-                            <ul>
-                                <li><strong>L'exécution</strong> : je prends en charge vos factures, relances, encodages (comme une assistante administrative)</li>
-                                <li><strong>L'amélioration</strong> : pendant que je travaille, j'identifie les points de friction et je vous propose des optimisations concrètes</li>
-                            </ul>
-                            <p>Vous pouvez choisir uniquement l'exécution, ou combiner les deux. Dans tous les cas, mon regard expert contribue à l'amélioration de votre organisation.</p>
-                </div>
-            </div>
-
-                    <div class="faq-item">
-                <div class="faq-question">
-                            <h3>Quels outils utilisez-vous dans votre accompagnement ?</h3>
-                            <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                            <p>J'utilise des outils adaptés à votre niveau et à vos besoins. Je privilégie des solutions simples et intuitives, et je vous accompagne dans leur prise en main. L'objectif est de vous faire gagner du temps, pas de complexifier votre quotidien.</p>
-                </div>
-            </div>
-
-                    <div class="faq-item">
-                <div class="faq-question">
-                            <h3>Quelle est la formule d'accompagnement ?</h3>
-                            <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                            <p>Deux possibilités selon vos besoins : mission ponctuelle (remise en ordre, audit, implémentation d'outils) ou accompagnement mensuel récurrent (forfait d'heures selon vos besoins). Nous déterminons la formule la plus adaptée lors de notre premier échange.</p>
-                </div>
-            </div>
-
-                    <div class="faq-item">
-                <div class="faq-question">
-                            <h3>Quand verrai-je les premiers résultats ?</h3>
-                            <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                            <p>Les premiers bénéfices sont souvent visibles dès les premières semaines : organisation améliorée, automatisation de certaines tâches, gain de temps immédiat. Les optimisations plus profondes se mettent en place progressivement, avec des résultats mesurables à chaque étape.</p>
-                </div>
-            </div>
-
-                </div>
-                </div>
-        </section>
 
         <!-- 8. SECTION AVIS CLIENTS -->
         <section id="testimonials" class="section-padding">
@@ -696,7 +639,6 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="ateliers-ia.html">Ateliers</a></li>
                         <li><a href="apropos.html">À propos</a></li>
-                        <li><a href="index.html#faq">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="privacy.html">Politique de confidentialité</a></li>
                     </ul>
@@ -731,41 +673,6 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // FAQ Accordéon
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const icon = question.querySelector('i');
-                
-                question.addEventListener('click', () => {
-                    const isOpen = item.classList.contains('active');
-                    
-                    // Fermer toutes les autres
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                            otherItem.querySelector('.faq-answer').style.maxHeight = null;
-                            otherItem.querySelector('.faq-question i').style.transform = 'rotate(0deg)';
-                        }
-                    });
-                    
-                    // Toggle current
-                    if (isOpen) {
-                        item.classList.remove('active');
-                        answer.style.maxHeight = null;
-                        icon.style.transform = 'rotate(0deg)';
-                    } else {
-                        item.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        icon.style.transform = 'rotate(180deg)';
-                    }
-                });
-            });
-        });
-
         // Chargement lazy de reCAPTCHA (seulement quand le formulaire devient visible)
         (function() {
             var recaptchaLoaded = false;
