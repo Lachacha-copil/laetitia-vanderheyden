@@ -4,20 +4,28 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     
-    <!-- Page d'accueil (inclut #about, parcours) -->
+    <!-- Page d'accueil -->
     <url>
         <loc>https://www.laetitia-vanderheyden.be/</loc>
-        <lastmod>2026-02-09</lastmod>
+        <lastmod>2026-03-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
-    <!-- Page Services -->
+
+    <!-- Page À propos -->
     <url>
-        <loc>https://www.laetitia-vanderheyden.be/services.html</loc>
-        <lastmod>2026-02-09</lastmod>
+        <loc>https://www.laetitia-vanderheyden.be/apropos.html</loc>
+        <lastmod>2026-03-13</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Page Guides & outils -->
+    <url>
+        <loc>https://www.laetitia-vanderheyden.be/guides.html</loc>
+        <lastmod>2026-03-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     
     <!-- Page Contact -->
@@ -28,6 +36,14 @@
         <priority>0.8</priority>
     </url>
     
+    <!-- Conditions générales de vente -->
+    <url>
+        <loc>https://www.laetitia-vanderheyden.be/cgv.html</loc>
+        <lastmod>2026-03-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
     <!-- Page Politique de confidentialité -->
     <url>
         <loc>https://www.laetitia-vanderheyden.be/privacy.html</loc>

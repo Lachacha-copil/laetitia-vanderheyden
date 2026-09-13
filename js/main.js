@@ -43,15 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const navLinks = document.querySelectorAll('.nav-link:not(.contact-btn)');
         
-                navLinks.forEach(link => {
+        navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Si le lien pointe vers la page courante (et pas vers une ancre)
             if (href && !href.startsWith('#') && href.includes(currentPage)) {
                 link.classList.add('active');
             } else if (href === 'index.html' && (currentPage === 'index.html' || currentPage === '')) {
                 link.classList.add('active');
             } else {
-                    link.classList.remove('active');
+                link.classList.remove('active');
             }
         });
         
