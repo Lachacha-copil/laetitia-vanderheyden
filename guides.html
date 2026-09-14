@@ -10,9 +10,9 @@
 
     <title>Guides &amp; outils finance et gestion | Laetitia Vanderheyden</title>
 
-    <meta name="description" content="Guides PDF et modèle Excel de trésorerie 13 semaines : chiffres clés, budget, prévisionnel glissant. Sans jargon. FR et EN. Laetitia Vanderheyden.">
+    <meta name="description" content="Guides PDF et modèles Excel de trésorerie 13 semaines (FR/EN) : chiffres clés, budget, prévisionnel glissant. Sans jargon. Laetitia Vanderheyden.">
     <meta property="og:title" content="Guides &amp; outils | Laetitia Vanderheyden">
-    <meta property="og:description" content="Les chiffres qui comptent vraiment (FR/EN) et modèle Excel trésorerie prévisionnelle 13 semaines.">
+    <meta property="og:description" content="Les chiffres qui comptent vraiment et modèle Excel trésorerie 13 semaines — versions française et anglaise.">
     <meta property="og:url" content="https://www.laetitia-vanderheyden.be/guides.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_BE">
@@ -93,11 +93,47 @@
 
             flex-direction: column;
 
-            gap: 2.5rem;
+            gap: 2.75rem;
 
-            max-width: 720px;
+            max-width: 1100px;
 
             margin: 0 auto;
+
+        }
+
+        .guides-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 1.5rem;
+
+            align-items: stretch;
+
+        }
+
+        .guides-row-title {
+
+            font-family: 'Lora', serif;
+
+            font-size: 1.15rem;
+
+            color: var(--primary);
+
+            margin: 0 0 0.9rem;
+
+            font-weight: 600;
+
+        }
+
+        @media (max-width: 800px) {
+
+            .guides-row {
+
+                grid-template-columns: 1fr;
+
+            }
 
         }
 
@@ -117,6 +153,20 @@
 
             overflow: hidden;
 
+            display: flex;
+
+            flex-direction: column;
+
+            height: 100%;
+
+        }
+
+        .guide-product-soon {
+
+            opacity: 0.92;
+
+            background: var(--background-alt);
+
         }
 
         .guide-product-cover {
@@ -133,7 +183,21 @@
 
         .guide-product-body {
 
-            padding: 1.75rem 1.75rem 2rem;
+            padding: 1.35rem 1.35rem 1.6rem;
+
+            display: flex;
+
+            flex-direction: column;
+
+            flex: 1;
+
+        }
+
+        .guide-product-body .btn {
+
+            margin-top: auto;
+
+            align-self: flex-start;
 
         }
 
@@ -223,7 +287,7 @@
 
         .guides-gumroad-legal {
 
-            max-width: 720px;
+            max-width: 1100px;
 
             margin: 2rem auto 0;
 
@@ -314,6 +378,12 @@
 
 
                 <div class="guides-catalog">
+
+                    <div>
+
+                    <h2 class="guides-row-title">Guides</h2>
+
+                    <div class="guides-row">
 
                     <article class="guide-product">
 
@@ -427,7 +497,17 @@
 
                     </article>
 
+                    </div>
 
+                    </div>
+
+
+
+                    <div>
+
+                    <h2 class="guides-row-title">Modèles Excel</h2>
+
+                    <div class="guides-row">
 
                     <article class="guide-product">
 
@@ -492,6 +572,78 @@
                         </div>
 
                     </article>
+
+
+
+                    <article class="guide-product">
+
+                        <img class="guide-product-cover" src="public/gumroad-cover-13-week-cash-flow-forecast-en.png" width="720" height="405" alt="Cover — 13-Week Cash Flow Forecast Excel template">
+
+                        <div class="guide-product-body">
+
+                            <div class="guide-product-tags">
+
+                                <span class="service-tag">Excel template</span>
+
+                                <span class="service-tag">English</span>
+
+                            </div>
+
+                            <p class="guide-lang-note">Same template, <strong>English edition</strong>.</p>
+
+                            <h2>13-Week Cash Flow Forecast</h2>
+
+                            <p class="guide-product-lead">What will your cash position look like in 13 weeks?</p>
+
+                            <p class="guide-product-lead">This ready-to-use Excel model helps you forecast your cash balance week by week, without building a cash flow model from scratch or handling formulas yourself.</p>
+
+                            <p class="guide-product-lead">Simply enter your expected inflows and outflows with their real dates. The file automatically assigns each transaction to the right week and calculates net cash flow, forecast balances and cash alerts.</p>
+
+                            <p class="guide-product-lead"><strong>A true rolling forecast</strong></p>
+
+                            <p class="guide-product-lead">Every transaction stays linked to its real date. To move forward, simply change the “displayed week”: the entire 13-week window rolls forward automatically. No copy-pasting and no data to move.</p>
+
+                            <p class="guide-product-lead">You can also look back at a previous period simply by selecting its starting Monday again.</p>
+
+                            <p class="guide-product-lead"><strong>What's included:</strong></p>
+
+                            <ul class="guide-product-list">
+
+                                <li>simple data entry: date, category and amount</li>
+
+                                <li>a detailed 13-week cash flow forecast</li>
+
+                                <li>automatic inflow, outflow, net cash flow and closing balance calculations</li>
+
+                                <li>a customizable minimum cash threshold</li>
+
+                                <li>automatic alerts when your forecast balance falls below that threshold</li>
+
+                                <li>a dashboard with key indicators and charts</li>
+
+                                <li>up to 500 operations</li>
+
+                                <li>a built-in user guide</li>
+
+                                <li>a PDF quick-start guide</li>
+
+                            </ul>
+
+                            <p class="guide-product-lead"><strong>Who is it for?</strong></p>
+
+                            <p class="guide-product-lead">Small and medium business owners, freelancers, and finance or admin managers who want clear short-term visibility on their cash position without relying on complex accounting or management software.</p>
+
+                            <p class="guide-product-specs">Microsoft Excel .xlsx file — no macros · Formulas verified · English edition</p>
+
+                            <a href="https://lvadmin.gumroad.com/l/13-week-cash-flow-forecast?wanted=true" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the template (Gumroad)</a>
+
+                        </div>
+
+                    </article>
+
+                    </div>
+
+                    </div>
 
                 </div>
 
