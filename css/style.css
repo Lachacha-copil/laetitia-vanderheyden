@@ -3126,6 +3126,17 @@ a:hover {
     font-family: 'Inter', sans-serif;
 }
 
+.footer-bottom .footer-legal-note {
+    margin-top: 0.7rem;
+    font-size: 0.78rem;
+    opacity: 0.5;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+    letter-spacing: 0;
+}
+
 @media (min-width: 1200px) {
     .footer-bottom {
         padding-top: 3rem;
